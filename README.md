@@ -20,7 +20,7 @@ Beach space allows its members to meet in real life via groups united by a commo
 
 ### Wireframes
 
-![](images/beach-space.svg)
+![](./final-project/doc/images/beach-space.svg)
 
 ## Technical Description
 
@@ -47,4 +47,4 @@ Beach space allows its members to meet in real life via groups united by a commo
 - category(String)
 - participants([Participants])
 
-![](images/data-model.svg)
+![](./final-project/doc/images/data-model.svg)
