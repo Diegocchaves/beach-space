@@ -2,7 +2,7 @@
  
 ## Intro
 
-Beach space permite a sus miembros reunirse en la vida real via grupos unidos por un interés común​ que en este caso, conectarse con personas apasionadas por la playa y todas sus interaccones tal como: el surf, paddle surf, beachvoley, natación, footvoley, además, organizar eventos para limpieza de playa, competiciones, after works, etc.
+Beach space allows its members to meet in real life via groups united by a common interest, which in this case, connect with people who are passionate about the beach and all its interactions such as: surfing, paddle surfing, beach volley, swimming, foot volley, In addition, organize events for beach cleaning, competitions, after works, etc.
 
 ![](https://media.giphy.com/media/mCJkHm7o6vSoAKcLY7/giphy.gif)
 
