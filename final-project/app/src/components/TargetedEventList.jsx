@@ -40,7 +40,7 @@ function TargetedEventList() {
   logger.info('render')
 
   return <div>
-    <h1 className='Description__pag'>Eventos apuntados</h1>
+    <h1 className='Description__pag'>Events targeted</h1>
     {events && events.length ?
       <ul className="myEventList__list">
         {events.map(event => <li key={event._id}>

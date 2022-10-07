@@ -40,19 +40,19 @@ function EventCreator() {
   return isJwtValid(sessionStorage.token) ?
     <div className="EventCreator">
       <form className="EventCreator__form" onSubmit={handleSaveSubmit}>
-        <h1 className='Description__pag'>Crear Evento</h1>
+        <h1 className='Description__pag'>Create Event</h1>
 
-        <h4>Nombre del evento</h4>
-        <textarea className='EventCreator__title' type='text' name="title" placeholder="¿Que nombre quieres que tenga el evento?"></textarea>
+        <h4>Name of the event</h4>
+        <textarea className='EventCreator__title' type='text' name="title" placeholder="What the name of the event?"></textarea>
 
-        <h4>Descripción</h4>
-        <textarea className='EventCreator__description' type='text' name="description" placeholder="Describe tu evento" />
+        <h4>Description</h4>
+        <textarea className='EventCreator__description' type='text' name="description" placeholder="Describe the event" />
 
         <MdOutlineLocationOn className="icons EventCreator__icon" />
-        <textarea className='EventCreator__Input' type="text" name='location' placeholder='Añade la ubicación del evento' />
+        <textarea className='EventCreator__Input' type="text" name='location' placeholder='Add the location of the event' />
 
         <MdCalendarToday className="icons EventCreator__icon" />
-        <textarea className='EventCreator__Input' type="text" name='eventDate' placeholder='Indica la fecha y hora del evento' />
+        <textarea className='EventCreator__Input' type="text" name='eventDate' placeholder='Indicate the date and time of the event' />
 
         <button className="EventCreator__button">Save</button>
 

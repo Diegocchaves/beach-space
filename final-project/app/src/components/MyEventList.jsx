@@ -38,7 +38,7 @@ function MyEventList({ timestamp }) {
   logger.info('render')
 
   return <div>
-    <h1 className='Description__pag'>Mis Eventos</h1>
+    <h1 className='Description__pag'>My Events</h1>
     {events && events.length ?
       <ul className="myEventList__list">
         {events.map(event => <li key={event.id}>

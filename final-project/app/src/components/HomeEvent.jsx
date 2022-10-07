@@ -30,7 +30,7 @@ function HomeEvent(props) {
   return <div>
     <div className="EventHome__form">
       <MdPeople className='EventHome__participantsIcons' />
-      <p className='EventHome__participants'>Participantes: {event.participants.length}</p>
+      <p className='EventHome__participants'>Participants: {event.participants.length}</p>
       <p className='EventHome__title'>{event.title}</p>
       <p className='EventHome__description'>{event.description}</p>
       <MdOutlineLocationOn className='EventHome__icons' />
@@ -39,7 +39,7 @@ function HomeEvent(props) {
       <p className='EventHome__date' >{event.eventDate}</p>
 
       <div className='EventHome__contanier-button'>
-        <button className="EventHome__button" onClick={handleSignUpToEventClick}>Apuntarme</button>
+        <button className="EventHome__button" onClick={handleSignUpToEventClick}>Sign up</button>
       </div>
 
     </div>

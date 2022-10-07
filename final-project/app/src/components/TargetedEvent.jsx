@@ -38,7 +38,7 @@ function TargetedEvent(props) {
     <p className='EventHome__date' >{props.eventDate}</p>
 
     <div className='MyEvent__button-container'>
-      <button className="MyEvent__event-button" onClick={handleRemoveClick}>cancelar</button>
+      <button className="MyEvent__event-button" onClick={handleRemoveClick}>cancel</button>
     </div>
   </div>
 }

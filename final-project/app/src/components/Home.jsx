@@ -82,7 +82,7 @@ function Home({ onUserLogout }) {
     <div className="Home Container">
       <header className="Home__header">
         <div className='Home__header-nav'>
-          <h1>Hola {name}</h1>
+          <h1>Hello {name}</h1>
           <a href="#" onClick={handleEventCreatorClick}><MdAddCircleOutline className="icons" /></a>
           <a href="#" onClick={handleLogoutClick}><MdLogout /></a>
         </div>

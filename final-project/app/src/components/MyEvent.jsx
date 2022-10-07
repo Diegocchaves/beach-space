@@ -60,7 +60,7 @@ function MyEvent(props) {
       <textarea className="MyEvent__date" type='text' name="eventDate" placeholder="Fecha" defaultValue={props.eventDate}></textarea>
 
       <div className='MyEvent__button-container'>
-        <button className="MyEvent__event-button" onClick={handleRemoveClick}>cancelar</button>
+        <button className="MyEvent__event-button" onClick={handleRemoveClick}>cancel</button>
         <button className="MyEvent__event-button">Save</button>
       </div>
 
