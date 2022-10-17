@@ -6,8 +6,8 @@ function createEvent(userId, title, description, location, eventDate) {
   validateStringNotEmptyNoSpaces(userId, 'userId')
   if (title != null) validateString(title, 'title')
   if (description != null) validateString(description, 'description')
-  if (description != null) validateString(location, 'location')
-  if (description != null) validateString(eventDate, 'eventDate')
+  if (location != null) validateString(location, 'location')
+  if (eventDate != null) validateString(eventDate, 'eventDate')
 
   return User.findById(userId)//user creator
     .then(user => {
