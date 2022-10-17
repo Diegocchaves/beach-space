@@ -1,6 +1,6 @@
 import Logger from 'loggy'
 import Apium from 'apium'
-import { validateJwt } from 'validators'
+import { validateDate, validateJwt, validateString, validateStringNotEmptyNoSpaces } from 'validators'
 
 function saveEvent(token, eventId, title, description, location, eventDate, callback) {
   const logger = new Logger('saveEvent')
@@ -8,6 +8,11 @@ function saveEvent(token, eventId, title, description, location, eventDate, call
   logger.info('call')
 
   validateJwt(token, 'token')
+  validateStringNotEmptyNoSpaces(eventId, 'eventID')
+  validateString(title, 'title')
+  validateString(description, 'description')
+  validateString(location, 'location')
+  validateString(eventDate, 'eventDate')
 
   logger.info('request')
 
