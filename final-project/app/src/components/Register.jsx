@@ -44,8 +44,6 @@ function Register(props) {
   return isJwtValid(sessionStorage.token) ? <></> : <div>
 
     <img className='Logo' src="./bs-logo.jpg" alt="" />
-    <img class="Register__background" src="./beach.jpg" alt="" />
-
 
     <form className="Register__form" onSubmit={handleFormSubmit}>
       <input className="Input__register-login" type="text" name="name" placeholder="Name" />
