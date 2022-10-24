@@ -25,7 +25,7 @@ function Login(props) {
           props.onUserLoggedIn()
 
         })
-        .catch(error => handleFeedback({ level: 'error', message: error.message }))
+        .catch(error => handleFeedback({ level: 'error', message: 'wrong credentials' }))
     } catch (error) {
       handleFeedback({ level: 'error', message: error.message })
     }
