@@ -4,6 +4,7 @@ import Context from './Context'
 import authenticateUser from '../logic/authenticateUser'
 import { isJwtValid } from 'validators'
 
+
 function Login(props) {
   const logger = new Logger('Login')
 
@@ -40,7 +41,7 @@ function Login(props) {
 
   return isJwtValid(sessionStorage.token) ? <></> : <div>
 
-    <img className='Logo' src="./bs-logo.jpg" alt="" />
+    <img className='Logo' src="./bs-logo1.png" alt="" />
 
     <form className="Login__form" onSubmit={handleFormSubmit}>
       <input className="Input__register-login" type="text" name="email" placeholder="Email" />
