@@ -79,6 +79,7 @@ function Home({ onUserLogout }) {
 
   return isJwtValid(sessionStorage.token) ?
 
+    // header
     <div className="Home Container">
       <header className="Home__header">
         <div className='Home__header-nav'>
@@ -88,6 +89,7 @@ function Home({ onUserLogout }) {
         </div>
       </header>
 
+      {/* main */}
       <main className="Home__body">
         <Routes>
           <Route index element={<HomeEventList />} />
@@ -98,6 +100,7 @@ function Home({ onUserLogout }) {
         </Routes>
       </main>
 
+      {/* footer */}
       <footer className="Home__footer">
         <nav className='Home__footer-nav'>
           <a href="#" onClick={handleHomeClick}><MdHome className="icons" /></a>
