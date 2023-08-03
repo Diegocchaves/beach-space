@@ -3,6 +3,7 @@ import Logger from 'loggy'
 import Context from './Context'
 import authenticateUser from '../logic/authenticateUser'
 import { isJwtValid } from 'validators'
+import { MdMailOutline, MdLockOutline } from 'react-icons/md'
 
 
 function Login(props) {
@@ -38,18 +39,40 @@ function Login(props) {
   }
 
   logger.info('render')
+  // TODO: have so much containers here. try to put a container inside the big contanier and then divide it in two partes, one for the logo and other to the form.
 
-  return isJwtValid(sessionStorage.token) ? <></> : <div>
+  {/* Form container */ }
+  return isJwtValid(sessionStorage.token) ? <></> : <div className='Form-container'>
+    <div className='wrapper'>
+      <div className='logo'>
+        <img src="./bs-new.png" alt="" />
+      </div>
 
-    <img className='Logo' src="./bs-logo1.png" alt="" />
+      <form onSubmit={handleFormSubmit}>
+        <div className='row'>
+          <i> <MdLockOutline /></i>
+          <input type="text" name="email" placeholder="Email" required />
+        </div>
+        <div className='row'>
+          <i> <MdMailOutline /></i>
+          <input type="password" name="password" placeholder="Password" required />
+        </div>
 
-    <form className="Login__form" onSubmit={handleFormSubmit}>
-      <input className="Input__register-login" type="text" name="email" placeholder="Email" />
-      <input className="Input__register-login" type="password" name="password" placeholder="Password" />
-      <button className="Button">Login</button>
-      <a href="#" className='Button--no-border' onClick={handleRegisterLinkClick}>Register</a>
-    </form>
+        {/* forgot password link */}
+        <div className='pass'><a href="#">Forgot password?</a></div>
+
+        {/* Login input */}
+        <div className='row button'>
+          <input type="submit" value='Login' />
+        </div>
+
+        {/* Register link */}
+        <div className='signup-link'>Not a member? <a href="#" onClick={handleRegisterLinkClick}>Signup now</a></div>
+      </form>
+    </div>
   </div>
+
+
 }
 
 export default Login
