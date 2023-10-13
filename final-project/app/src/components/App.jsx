@@ -45,7 +45,7 @@ function App() {
   logger.info('render')
 
   return <Context.Provider value={{ handleFeedback }}>
-    <div className="App Container">
+    <div className="app-container">
       <Routes>
         <Route path="/*" element={<Home onUserLogout={handleUserLogout} />} />
         <Route path="/login" element={<Login onUserLoggedIn={handleUserLoggedIn} onRegisterLinkClicked={handleRegisterNavigation} />} />

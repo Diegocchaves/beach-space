@@ -42,7 +42,7 @@ function Login(props) {
   // TODO: have so much containers here. try to put a container inside the big contanier and then divide it in two partes, one for the logo and other to the form.
 
   {/* Form container */ }
-  return isJwtValid(sessionStorage.token) ? <></> : <div className='Form-container'>
+  return isJwtValid(sessionStorage.token) ? <></> : <div className='container'>
     <div className='wrapper'>
       <div className='logo'>
         <img src="./bs-new.png" alt="" />
