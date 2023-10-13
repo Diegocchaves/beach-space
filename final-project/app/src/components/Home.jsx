@@ -11,6 +11,7 @@ import { isJwtValid } from 'validators'
 import './Home.sass'
 import { useNavigate, Routes, Route } from 'react-router-dom'
 import { MdHome, MdOutlineCalendarToday, MdLogout, MdPermIdentity, MdAddCircleOutline, MdListAlt } from "react-icons/md"
+import { Link } from 'react-scroll'
 
 function Home({ onUserLogout }) {
   const logger = new Logger('Home')
@@ -80,36 +81,45 @@ function Home({ onUserLogout }) {
   return isJwtValid(sessionStorage.token) ?
 
     // header
-    <div className="Home Container">
-      <header className="Home__header">
-        <div className='Home__header-nav'>
-          <h1>Hello {name}</h1>
-          <a href="#" onClick={handleEventCreatorClick}><MdAddCircleOutline className="icons" /></a>
-          <a href="#" onClick={handleLogoutClick}><MdLogout /></a>
-        </div>
-      </header>
+    <div className="headbar">
+      <div className='name'>
+        <h1 style={{ width: '100px' }}>Hello {name}</h1 >
+      </div>
 
-      {/* main */}
-      <main className="Home__body">
-        <Routes>
-          <Route index element={<HomeEventList />} />
-          <Route path="/eventCreator" element={<EventCreator />} />
-          <Route path="/myEventList" element={<MyEventList />} />
-          <Route path="/targetedEventList" element={<TargetedEventList />} />
-          <Route path="/profile" element={<Profile />} />
-        </Routes>
-      </main>
+      <ul className='list'>
+        <li>
+          <Link to="home" smooth={true} duration={500} >
+            <a href="#" onClick={handleHomeClick}>Home</a>
+          </Link>
+        </li>
+        <li>
+          <Link to="profile" smooth={true} duration={500} >
+            <a href="#" onClick={handleProfileClick}>Profile</a>
+          </Link>
+        </li>
+      </ul>
 
-      {/* footer */}
+
+
+      <Routes>
+        <Route index element={<HomeEventList />} />
+        <Route path="/eventCreator" element={<EventCreator />} />
+        <Route path="/myEventList" element={<MyEventList />} />
+        <Route path="/targetedEventList" element={<TargetedEventList />} />
+        <Route path="/profile" element={<Profile />} />
+      </Routes>
+
+
+      {/* footer
       <footer className="Home__footer">
         <nav className='Home__footer-nav'>
-          <a href="#" onClick={handleHomeClick}><MdHome className="icons" /></a>
-          <a href="#" onClick={handleMyEventListClick}><MdOutlineCalendarToday className="icons" /></a>
-          <a href="#" onClick={handleTargetedEventClick}><MdListAlt className="icons" /></a>
-          <a href="#" onClick={handleProfileClick}><MdPermIdentity className="icons" /></a>
+          <a href="#" onClick={handleHomeClick}>Home</a>
+          <a href="#" onClick={handleMyEventListClick}>My events</a>
+          <a href="#" onClick={handleTargetedEventClick}>Events Targeted</a>
+          <a href="#" onClick={handleProfileClick}>Profile</a>
         </nav>
 
-      </footer>
+      </footer> */}
     </div> : <></>
 }
 

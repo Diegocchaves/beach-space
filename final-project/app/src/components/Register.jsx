@@ -3,6 +3,7 @@ import Logger from 'loggy'
 import Context from './Context'
 import registerUser from '../logic/registerUser'
 import { isJwtValid } from 'validators'
+import { MdMailOutline, MdLockOutline, MdPersonOutline } from 'react-icons/md'
 
 function Register(props) {
   const logger = new Logger('Register')
@@ -41,17 +42,31 @@ function Register(props) {
 
   logger.info('render')
 
-  return isJwtValid(sessionStorage.token) ? <></> : <div>
+  return isJwtValid(sessionStorage.token) ? <></> : <div className='container'>
+    <div className='wrapper'>
+      <div className='logo'>
+        <img src="./bs-new.png" alt="" />
+      </div>
+      <form className="form" onSubmit={handleFormSubmit}>
+        <div className='row'>
+          <i><MdPersonOutline /></i>
+          <input type="text" name="name" placeholder="Name" />
+        </div>
 
-    <img className='Logo' src="./bs-logo1.png" alt="" />
+        <div className='row'>
+          <i><MdMailOutline /></i>
+          <input type="text" name="email" placeholder="Email" />
+        </div>
 
-    <form className="Register__form" onSubmit={handleFormSubmit}>
-      <input className="Input__register-login" type="text" name="name" placeholder="Name" />
-      <input className="Input__register-login" type="text" name="email" placeholder="Email" />
-      <input className="Input__register-login" type="password" name="password" placeholder="Password" />
-      <button className="Button">Register</button>
-      <a href="#" className='Button--no-border' onClick={handleLoginLinkClick}>Login</a>
-    </form>
+        <div className='row'>
+          <i><MdLockOutline /></i>
+          <input type="password" name="password" placeholder="Password" />
+        </div>
+
+        <div className='signin-link'>Join us! <a href="#" onClick={handleLoginLinkClick}>Login</a></div>
+      </form>
+    </div>
+
   </div>
 }
 

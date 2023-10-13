@@ -35,14 +35,14 @@ function HomeEventList() {
 
   logger.info('render')
 
-  return events && events.length ?
-    <ul className="EventList__list">
-      {events.map(event => <li key={event.id}>
-        <HomeEvent event={event} onSignUp={handleSignUpToEventClick} />
-      </li>)}
-    </ul>
-    :
-    <p className='EventList__p'>no event yet</p>
+  // return events && events.length ?
+  //   <ul className="EventList__list">
+  //     {events.map(event => <li key={event.id}>
+  //       <HomeEvent event={event} onSignUp={handleSignUpToEventClick} />
+  //     </li>)}
+  //   </ul>
+  //   :
+  //   <p className='EventList__p'>no event yet</p>
 }
 
 export default HomeEventList
