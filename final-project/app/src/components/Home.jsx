@@ -10,7 +10,7 @@ import TargetedEventList from './TargetedEventList'
 import { isJwtValid } from 'validators'
 import './Home.sass'
 import { useNavigate, Routes, Route } from 'react-router-dom'
-import { MdHome, MdOutlineCalendarToday, MdLogout, MdPermIdentity, MdAddCircleOutline, MdListAlt } from "react-icons/md"
+import { MdHome, MdOutlineCalendarToday, MdLogout, MdPermIdentity, MdAddCircleOutline, MdListAlt, MdOutlineSettings } from "react-icons/md"
 import { Link } from 'react-scroll'
 
 function Home({ onUserLogout }) {
@@ -80,25 +80,13 @@ function Home({ onUserLogout }) {
 
   return isJwtValid(sessionStorage.token) ?
 
-    // header
     <div className="headbar">
       <div className='name'>
         <h1 style={{ width: '100px' }}>Hello {name}</h1 >
       </div>
-
-      <ul className='list'>
-        <li>
-          <Link to="home" smooth={true} duration={500} >
-            <a href="#" onClick={handleHomeClick}>Home</a>
-          </Link>
-        </li>
-        <li>
-          <Link to="profile" smooth={true} duration={500} >
-            <a href="#" onClick={handleProfileClick}>Profile</a>
-          </Link>
-        </li>
-      </ul>
-
+      <div className='settings'>
+        <i>< MdOutlineSettings /></i>
+      </div>
 
 
       <Routes>
