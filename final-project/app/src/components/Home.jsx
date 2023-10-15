@@ -10,7 +10,7 @@ import TargetedEventList from './TargetedEventList'
 import { isJwtValid } from 'validators'
 import './Home.sass'
 import { useNavigate, Routes, Route } from 'react-router-dom'
-import { MdHome, MdOutlineCalendarToday, MdLogout, MdPermIdentity, MdAddCircleOutline, MdListAlt, MdOutlineSettings } from "react-icons/md"
+import { MdEvent } from "react-icons/md"
 import { Link } from 'react-scroll'
 
 function Home({ onUserLogout }) {
@@ -80,12 +80,27 @@ function Home({ onUserLogout }) {
 
   return isJwtValid(sessionStorage.token) ?
 
-    <div className="headbar">
-      <div className='name'>
-        <h1 style={{ width: '100px' }}>Hello {name}</h1 >
+    <div className="navbar">
+      <div className='head'>
+        <img src="dc.jpg" alt="photo"></img>
+        <h1 style={{ width: '100px' }}>{name}</h1 >
       </div>
+
+      <ul className='listWrapper'>
+        <li className='list'>
+          <Link onClick={handleHomeClick} to="home" smooth={true} duration={500}>News feed</Link>
+        </li>
+        <li>
+          <Link onClick={handleMyEventListClick} to="myEventList" smooth={true} duration={500}>Events <MdEvent size={30} /></Link>
+        </li>
+        <li>
+          <Link onClick={handleTargetedEventClick} to="targetedEvent" smooth={true} duration={500}>Scheduled </Link>
+        </li>
+        <li>
+          <Link onClick={handleProfileClick} to="profile" smooth={true} duration={500}>Profile</Link>
+        </li>
+      </ul>
       <div className='settings'>
-        <i>< MdOutlineSettings /></i>
       </div>
 
 
@@ -108,7 +123,7 @@ function Home({ onUserLogout }) {
         </nav>
 
       </footer> */}
-    </div> : <></>
+    </div > : <></>
 }
 
 export default Home
