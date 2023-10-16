@@ -10,7 +10,7 @@ import TargetedEventList from './TargetedEventList'
 import { isJwtValid } from 'validators'
 import './Home.sass'
 import { useNavigate, Routes, Route } from 'react-router-dom'
-import { MdEvent } from "react-icons/md"
+import { MdBeachAccess, MdFactCheck, MdPerson } from 'react-icons/md'
 import { Link } from 'react-scroll'
 
 function Home({ onUserLogout }) {
@@ -79,25 +79,29 @@ function Home({ onUserLogout }) {
   logger.info('render')
 
   return isJwtValid(sessionStorage.token) ?
-
+    // navbar
     <div className="navbar">
       <div className='head'>
         <img src="dc.jpg" alt="photo"></img>
         <h1 style={{ width: '100px' }}>{name}</h1 >
       </div>
 
+      <div className='feed'>
+        <Link onClick={handleHomeClick} to="home" smooth={true} duration={500}>News Feed</Link>
+      </div>
+
       <ul className='listWrapper'>
         <li className='list'>
-          <Link onClick={handleHomeClick} to="home" smooth={true} duration={500}>News feed</Link>
+          <i><MdBeachAccess size={18} /></i>
+          <Link onClick={handleMyEventListClick} to="myEventList" smooth={true} duration={500}>Events</Link>
         </li>
-        <li>
-          <Link onClick={handleMyEventListClick} to="myEventList" smooth={true} duration={500}>Events <MdEvent size={30} /></Link>
-        </li>
-        <li>
+        <li className='list'>
+          <i><MdFactCheck size={18} /></i>
           <Link onClick={handleTargetedEventClick} to="targetedEvent" smooth={true} duration={500}>Scheduled </Link>
         </li>
-        <li>
-          <Link onClick={handleProfileClick} to="profile" smooth={true} duration={500}>Profile</Link>
+        <li className='list'>
+          <i><MdPerson size={18} /></i>
+          <Link onClick={handleProfileClick} to="profile" smooth={true} duration={500} >Profile </Link>
         </li>
       </ul>
       <div className='settings'>
