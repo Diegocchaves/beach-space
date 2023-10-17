@@ -28,19 +28,19 @@ function HomeEvent(props) {
   logger.info('render')
   //event container
   return <div>
-    <div className='Event__container'>
-      <div className="EventHome__form">
-        <MdPeople className='EventHome__participantsIcons' />
-        <p className='EventHome__participants'>Participants: {event.participants.length}</p>
-        <p className='EventHome__title'>{event.title}</p>
-        <p className='EventHome__description'>{event.description}</p>
-        <MdOutlineLocationOn className='EventHome__icons' />
-        <p className='EventHome__location'>{event.location}</p>
-        < MdCalendarToday className='EventHome__icons' />
-        <p className='EventHome__date' >{event.eventDate}</p>
+    <div className='event-container'>
+      <div className="event-form">
+        <i><MdPeople /></i>
+        <p className='event-participant'>Participants: {event.participants.length}</p>
+        <p className='event-title'>{event.title}</p>
+        <p className='event-description'>{event.description}</p>
+        <i><MdOutlineLocationOn /></i>
+        <p className='event-location'>{event.location}</p>
+        <i>< MdCalendarToday /></i>
+        <p className='event-date' >{event.eventDate}</p>
 
-        <div className='EventHome__contanier-button'>
-          <button className="EventHome__button" onClick={handleSignUpToEventClick}>Sign up</button>
+        <div className='event-button'>
+          <button className="button" onClick={handleSignUpToEventClick}>Sign up</button>
         </div>
       </div>
     </div>

@@ -86,41 +86,40 @@ function Home({ onUserLogout }) {
         <ul className='toplist-wrapper'>
           <li className='toplist'>
             <i>< BsPlus /></i>
-            <Link onClick={handleHomeClick} to="eventCreator" smooth={true} duration={500}>New Event</Link>
+            <Link onClick={handleEventCreatorClick} to="eventCreator" smooth={true} duration={500}>New Event</Link>
           </li>
         </ul>
       </div>
 
       {/* side navegation bar */}
       <div className="left-container">
-        <div className='left-head'>
+
+        <div className='left-head' onClick={handleHomeClick} >
           <img src="dc.jpg" alt=""></img>
           <h1 style={{ width: '100px' }}>{name}</h1 >
         </div>
 
+        {/* feed */}
         <div className='feed'>
-          <Link onClick={handleHomeClick} to="home" smooth={true} duration={500}>News Feed</Link>
+          <Link onClick={handleHomeClick} smooth={true} duration={500}>New Feeds</Link>
         </div>
 
         <ul className='leftlist-wrapper'>
           <li className='list'>
             <i><MdBeachAccess size={18} /></i>
-            <Link onClick={handleMyEventListClick} to="myEventList" smooth={true} duration={500}>Events</Link>
+            <Link onClick={handleMyEventListClick} smooth={true} duration={500}>Events</Link>
           </li>
           <li className='list'>
             <i><MdFactCheck size={18} /></i>
-            <Link onClick={handleTargetedEventClick} to="targetedEvent" smooth={true} duration={500}>Scheduled </Link>
+            <Link onClick={handleTargetedEventClick} smooth={true} duration={500}>Scheduled </Link>
           </li>
           <li className='list'>
             <i><MdPerson size={18} /></i>
-            <Link onClick={handleProfileClick} to="profile" smooth={true} duration={500} >Profile </Link>
+            <Link onClick={handleProfileClick} duration={500} >Profile </Link>
           </li>
         </ul>
-        <div className='right-container'>
 
-        </div>
-
-
+        {/* ROUTES */}
         <Routes>
           <Route index element={<HomeEventList />} />
           <Route path="/eventCreator" element={<EventCreator />} />
@@ -129,8 +128,20 @@ function Home({ onUserLogout }) {
           <Route path="/profile" element={<Profile />} />
         </Routes>
 
+      </div >
 
-        {/* footer
+      <div>
+
+      </div>
+
+    </div > : <></>
+}
+
+export default Home
+
+
+
+{/* footer
       <footer className="Home__footer">
         <nav className='Home__footer-nav'>
           <a href="#" onClick={handleHomeClick}>Home</a>
@@ -140,10 +151,4 @@ function Home({ onUserLogout }) {
         </nav>
 
       </footer> */}
-      </div >
-
-    </div > : <></>
-}
-
-export default Home
 
