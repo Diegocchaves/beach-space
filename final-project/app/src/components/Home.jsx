@@ -11,6 +11,7 @@ import { isJwtValid } from 'validators'
 import './Home.sass'
 import { useNavigate, Routes, Route } from 'react-router-dom'
 import { MdBeachAccess, MdFactCheck, MdPerson } from 'react-icons/md'
+import { BsPlus } from 'react-icons/bs'
 import { Link } from 'react-scroll'
 
 function Home({ onUserLogout }) {
@@ -79,45 +80,57 @@ function Home({ onUserLogout }) {
   logger.info('render')
 
   return isJwtValid(sessionStorage.token) ?
-    // navbar
-    <div className="navbar">
-      <div className='head'>
-        <img src="dc.jpg" alt="photo"></img>
-        <h1 style={{ width: '100px' }}>{name}</h1 >
+    <div className='home-container'>
+      {/* top navegation bar */}
+      <div className='top-container'>
+        <ul className='toplist-wrapper'>
+          <li className='toplist'>
+            <i>< BsPlus /></i>
+            <Link onClick={handleHomeClick} to="eventCreator" smooth={true} duration={500}>New Event</Link>
+          </li>
+        </ul>
       </div>
 
-      <div className='feed'>
-        <Link onClick={handleHomeClick} to="home" smooth={true} duration={500}>News Feed</Link>
-      </div>
+      {/* side navegation bar */}
+      <div className="left-container">
+        <div className='left-head'>
+          <img src="dc.jpg" alt=""></img>
+          <h1 style={{ width: '100px' }}>{name}</h1 >
+        </div>
 
-      <ul className='listWrapper'>
-        <li className='list'>
-          <i><MdBeachAccess size={18} /></i>
-          <Link onClick={handleMyEventListClick} to="myEventList" smooth={true} duration={500}>Events</Link>
-        </li>
-        <li className='list'>
-          <i><MdFactCheck size={18} /></i>
-          <Link onClick={handleTargetedEventClick} to="targetedEvent" smooth={true} duration={500}>Scheduled </Link>
-        </li>
-        <li className='list'>
-          <i><MdPerson size={18} /></i>
-          <Link onClick={handleProfileClick} to="profile" smooth={true} duration={500} >Profile </Link>
-        </li>
-      </ul>
-      <div className='settings'>
-      </div>
+        <div className='feed'>
+          <Link onClick={handleHomeClick} to="home" smooth={true} duration={500}>News Feed</Link>
+        </div>
+
+        <ul className='leftlist-wrapper'>
+          <li className='list'>
+            <i><MdBeachAccess size={18} /></i>
+            <Link onClick={handleMyEventListClick} to="myEventList" smooth={true} duration={500}>Events</Link>
+          </li>
+          <li className='list'>
+            <i><MdFactCheck size={18} /></i>
+            <Link onClick={handleTargetedEventClick} to="targetedEvent" smooth={true} duration={500}>Scheduled </Link>
+          </li>
+          <li className='list'>
+            <i><MdPerson size={18} /></i>
+            <Link onClick={handleProfileClick} to="profile" smooth={true} duration={500} >Profile </Link>
+          </li>
+        </ul>
+        <div className='right-container'>
+
+        </div>
 
 
-      <Routes>
-        <Route index element={<HomeEventList />} />
-        <Route path="/eventCreator" element={<EventCreator />} />
-        <Route path="/myEventList" element={<MyEventList />} />
-        <Route path="/targetedEventList" element={<TargetedEventList />} />
-        <Route path="/profile" element={<Profile />} />
-      </Routes>
+        <Routes>
+          <Route index element={<HomeEventList />} />
+          <Route path="/eventCreator" element={<EventCreator />} />
+          <Route path="/myEventList" element={<MyEventList />} />
+          <Route path="/targetedEventList" element={<TargetedEventList />} />
+          <Route path="/profile" element={<Profile />} />
+        </Routes>
 
 
-      {/* footer
+        {/* footer
       <footer className="Home__footer">
         <nav className='Home__footer-nav'>
           <a href="#" onClick={handleHomeClick}>Home</a>
@@ -127,6 +140,8 @@ function Home({ onUserLogout }) {
         </nav>
 
       </footer> */}
+      </div >
+
     </div > : <></>
 }
 

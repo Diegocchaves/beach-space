@@ -1,16 +1,59 @@
-.navbar
+
+.home-container
+    // width: 50%
+    // margin: 0 auto
+    margin: 0
+    padding: 0
+    display: grid
+    grid-template-columns: 1fr 2fr 1fr
+    grid-template-rows: 0fr 5fr
+    height: 100vh
+
+.top-container
+    width: 66%
+    margin: 15px
+    grid-column: 2 / span 2
+    grid-row: 1
+    // background-color: #f0f0f0
+
+.top-container .toplist-wrapper
+    display: flex
+    justify-content: center
+    padding: 0px
+
+.top-container .toplist-wrapper .toplist
+    width: 10rem
+    display: flex
+    gap: 5px
+    align-items: center
+    justify-content: center
+    border: 1px solid #91abbe
+    border-radius: 10px
+
+.top-container .toplist-wrapper .toplist i
+    display: flex
+    width: 20px
+    height: 20px
+    color: #1a1a1a
+    align-items: center
+    justify-content: center
+
+.top-container .toplist-wrapper .toplist a
+    font-size: 13px
+
+.left-container
+    grid-column: 1
+    grid-row: 2
     position: fixed
     height: 100%
     width: 200px
-    margin: 20px
+    margin: 15px
     display: flex
     flex-direction: column
     justify-content: space-between
     align-items: center
-    background: #ebe5eb
-    border-radius: 40px
 
-.navbar .head
+.left-container .left-head
     width: 80%
     margin: 20px auto
     display: flex
@@ -18,18 +61,18 @@
     justify-content: space-between
     align-items: center
 
-.navbar .head img
+.left-container .left-head img
     width: 50%
     border: 1px solid #1a1a1a
     border-radius: 50px
 
-.navbar .head h1
+.left-container .left-head h1
     justify-content: center
     text-align: center
     font-size: 18px
     color: #1a1a1a
 
-.navbar .feed
+.left-container .feed
     width: 90%
     height: 35px
     margin-top: -270px
@@ -41,14 +84,14 @@
     justify-content: center
     align-items: center
 
-.navbar .feed a
+.left-container .feed a
     color: #fff
     font-size: 14px
 
-.navbar .feed:hover
+.left-container .feed:hover
     background: #91abbe
 
-.navbar .listWrapper
+.left-container .leftlist-wrapper
     display: flex
     flex-direction: column
     justify-content: space-between
@@ -60,21 +103,21 @@
     align-items: center
     padding: 0px
 
-.navbar .listWrapper .list
+.left-container .leftlist-wrapper .list
     display: flex
     gap: 5px
     align-items: center
     justify-content: center
 
-.navbar .listWrapper .list:hover
+.left-container .leftlist-wrapper .list:hover
     scale: 1.09
     transition-duration: 500ms
 
-.navbar .listWrapper .list a
+.left-container .leftlist-wrapper .list a
     font-size: 15px
     font-weight: bold
 
-.navbar .listWrapper .list i
+.left-container .leftlist-wrapper .list i
     display: flex
     width: 20px
     height: 20px
@@ -82,8 +125,10 @@
     align-items: center
     justify-content: center
 
-.settings
-    padding: 12px
+.right-container
+    grid-column: 3 / span 2 // Span 2 columns from the 3rd column
+    grid-row: 2 // Display in the middle-right
+    background-color: #1a1a1a
 
     // h-[60px] flex justify-between items-center ml-[-100px] hover:ml-[-10px] duration-300 bg-[#4267b2]
 // .home header
