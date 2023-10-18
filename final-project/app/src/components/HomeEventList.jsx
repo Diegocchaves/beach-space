@@ -36,11 +36,12 @@ function HomeEventList() {
   logger.info('render')
 
   return events && events.length ?
-    <ul className="event-home-presentation">
-      {events.map(event => <li key={event.id}>
+    <div className='event-home-container'>
+      <ul className="event-home-presentation">{events.map(event => <li key={event.id}>
         <HomeEvent event={event} onSignUp={handleSignUpToEventClick} />
       </li>)}
-    </ul>
+      </ul>
+    </div>
     :
     <p>no event yet</p>
 }

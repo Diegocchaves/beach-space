@@ -82,18 +82,28 @@ function Home({ onUserLogout }) {
   return isJwtValid(sessionStorage.token) ?
     <div className='home-container'>
       {/* top navegation bar */}
-      <div className='top-container'>
+      <header className='top-container'>
         <ul className='toplist-wrapper'>
           <li className='toplist'>
             <i>< BsPlus /></i>
             <Link onClick={handleEventCreatorClick} to="eventCreator" smooth={true} duration={500}>New Event</Link>
           </li>
         </ul>
-      </div>
+      </header>
+
+      {/* ROUTES */}
+      <main>
+        <Routes>
+          <Route index element={<HomeEventList />} />
+          <Route path="/eventCreator" element={<EventCreator />} />
+          <Route path="/myEventList" element={<MyEventList />} />
+          <Route path="/targetedEventList" element={<TargetedEventList />} />
+          <Route path="/profile" element={<Profile />} />
+        </Routes>
+      </main>
 
       {/* side navegation bar */}
-      <div className="left-container">
-
+      <nav className="left-container">
         <div className='left-head' onClick={handleHomeClick} >
           <img src="dc.jpg" alt=""></img>
           <h1 style={{ width: '100px' }}>{name}</h1 >
@@ -118,20 +128,8 @@ function Home({ onUserLogout }) {
             <Link onClick={handleProfileClick} duration={500} >Profile </Link>
           </li>
         </ul>
-
-        {/* ROUTES */}
-        <Routes>
-          <Route index element={<HomeEventList />} />
-          <Route path="/eventCreator" element={<EventCreator />} />
-          <Route path="/myEventList" element={<MyEventList />} />
-          <Route path="/targetedEventList" element={<TargetedEventList />} />
-          <Route path="/profile" element={<Profile />} />
-        </Routes>
-
-      </div >
-
+      </nav>
       <div>
-
       </div>
 
     </div > : <></>
