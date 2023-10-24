@@ -51,17 +51,17 @@ function MyEvent(props) {
 
   logger.info('render')
 
-  return <div className='MyEvent'>
-    <form className="MyEvent__form" onSubmit={handleSaveSubmit}>
+  return <div className='my-event-container'>
+    <form className="my-event-form" onSubmit={handleSaveSubmit}>
 
-      <textarea className='MyEvent__title' type='text' name="title" placeholder="Titulo" defaultValue={props.title}></textarea>
-      <textarea className="MyEvent__description" type='text' name="text" placeholder="Descripción" defaultValue={props.description}></textarea>
-      <textarea className="MyEvent__location" type='text' name="location" placeholder="Localización" defaultValue={props.location}></textarea>
-      <textarea className="MyEvent__date" type='text' name="eventDate" placeholder="Fecha" defaultValue={props.eventDate}></textarea>
+      <textarea className='my-event-title' type='text' name="title" placeholder="Titulo" defaultValue={props.title}></textarea>
+      <textarea className="my-event-description" type='text' name="text" placeholder="Descripción" defaultValue={props.description}></textarea>
+      <textarea className="my-event-location" type='text' name="location" placeholder="Localización" defaultValue={props.location}></textarea>
+      <textarea className="my-event-date" type='text' name="eventDate" placeholder="Fecha" defaultValue={props.eventDate}></textarea>
 
-      <div className='MyEvent__button-container'>
-        <button className="MyEvent__event-button" onClick={handleRemoveClick}>cancel</button>
-        <button className="MyEvent__event-button">Save</button>
+      <div className='my-event-button-container'>
+        <button className="my-event-event-button" onClick={handleRemoveClick}>cancel</button>
+        <button className="my-event-event-button">Save</button>
       </div>
 
     </form>

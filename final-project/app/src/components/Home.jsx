@@ -135,6 +135,9 @@ function Home({ onUserLogout }) {
         </div>
         {/* Right sidebar */}
         <aside class="sidebar-right">
+          <div>
+
+          </div>
 
         </aside>
       </main>
