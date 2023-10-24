@@ -91,48 +91,56 @@ function Home({ onUserLogout }) {
         </ul>
       </header>
 
-      {/* side navegation bar */}
-      <nav className="nav-container">
-        <div className="left-container">
-          <div className='left-head' onClick={handleHomeClick} >
-            <img src="dc.jpg" alt=""></img>
-            <h1 style={{ width: '100px' }}>{name}</h1 >
-          </div>
+      {/* Main content area */}
+      <main className='main-content'>
+        {/* Left Sidebar */}
+        <aside className="sidebar-left">
+          <div className="left-container">
+            <div className='left-head' onClick={handleHomeClick} >
+              <img src="dc.jpg" alt=""></img>
+              <h1 style={{ width: '100px' }}>{name}</h1 >
+            </div>
 
-          {/* feed */}
-          <div className='feed'>
-            <Link onClick={handleHomeClick} smooth={true} duration={500}>New Feeds</Link>
-          </div>
+            {/* feed */}
+            <div className='feed'>
+              <Link onClick={handleHomeClick} smooth={true} duration={500}>New Feeds</Link>
+            </div>
 
-          <ul className='leftlist-wrapper'>
-            <li className='list'>
-              <i><MdBeachAccess size={18} /></i>
-              <Link onClick={handleMyEventListClick} smooth={true} duration={500}>Events</Link>
-            </li>
-            <li className='list'>
-              <i><MdFactCheck size={18} /></i>
-              <Link onClick={handleTargetedEventClick} smooth={true} duration={500}>Scheduled </Link>
-            </li>
-            <li className='list'>
-              <i><MdPerson size={18} /></i>
-              <Link onClick={handleProfileClick} duration={500} >Profile </Link>
-            </li>
-          </ul>
+            <ul className='leftlist-wrapper'>
+              <li className='list'>
+                <i><MdBeachAccess size={18} /></i>
+                <Link onClick={handleMyEventListClick} smooth={true} duration={500}>Events</Link>
+              </li>
+              <li className='list'>
+                <i><MdFactCheck size={18} /></i>
+                <Link onClick={handleTargetedEventClick} smooth={true} duration={500}>Scheduled </Link>
+              </li>
+              <li className='list'>
+                <i><MdPerson size={18} /></i>
+                <Link onClick={handleProfileClick} duration={500} >Profile </Link>
+              </li>
+            </ul>
+          </div>
+        </aside>
+
+        {/* ROUTES */}
+        <div className='content'>
+          <Routes>
+            <Route index element={<HomeEventList />} />
+            <Route path="/eventCreator" element={<EventCreator />} />
+            <Route path="/myEventList" element={<MyEventList />} />
+            <Route path="/targetedEventList" element={<TargetedEventList />} />
+            <Route path="/profile" element={<Profile />} />
+          </Routes>
         </div>
-      </nav>
+        {/* Right sidebar */}
+        <aside class="sidebar-right">
+
+        </aside>
+      </main>
       <div>
       </div>
 
-      {/* ROUTES */}
-      <div>
-        <Routes>
-          <Route index element={<HomeEventList />} />
-          <Route path="/eventCreator" element={<EventCreator />} />
-          <Route path="/myEventList" element={<MyEventList />} />
-          <Route path="/targetedEventList" element={<TargetedEventList />} />
-          <Route path="/profile" element={<Profile />} />
-        </Routes>
-      </div>
 
 
     </div > : <></>

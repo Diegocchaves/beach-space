@@ -30,14 +30,24 @@ function HomeEvent(props) {
   return <div>
     <div className='event-container'>
       <div className="event-form">
-        <i><MdPeople /></i>
-        <p className='event-participant'>Participants: {event.participants.length}</p>
-        <p className='event-title'>{event.title}</p>
-        <p className='event-description'>{event.description}</p>
-        <i><MdOutlineLocationOn /></i>
-        <p className='event-location'>{event.location}</p>
-        <i>< MdCalendarToday /></i>
-        <p className='event-date' >{event.eventDate}</p>
+        <div className='event-row'>
+          <i><MdPeople /></i>
+          <p className='event-participant'>Participants: {event.participants.length}</p>
+        </div>
+
+        <div className='event-row'><p className='event-title'>{event.title}</p></div>
+
+        <div className='event-row'><p className='event-description'>{event.description}</p></div>
+
+        <div className='event-row'>
+          <i><MdOutlineLocationOn /></i>
+          <p className='event-location'>{event.location}</p>
+        </div>
+
+        <div className='event-row'>
+          <i>< MdCalendarToday /></i>
+          <p className='event-date' >{event.eventDate}</p>
+        </div>
 
         <div className='event-button'>
           <button className="button" onClick={handleSignUpToEventClick}>Sign up</button>

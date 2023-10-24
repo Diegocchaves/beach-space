@@ -12,11 +12,15 @@
     // margin: 0 auto
 
 .top-container
-    position: fixed
-    top: 0
-    background-color: ghostwhite
-    width: 100%
-    height: 65px
+    background-color: #fff
+    color: #333
+    padding: 10px
+    text-align: center
+    // position: fixed
+    // top: 0
+    // background-color: ghostwhite
+    // width: 100%
+    // height: 65px
     // width: 100%
     // margin: 0px
     // background-color: #f0f0f0
@@ -60,6 +64,17 @@
 
 .top-container .toplist-wrapper .toplist a
     font-size: 13px
+
+.main-content
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+    margin: 20px
+
+.sidebar-left
+    width: 200px
+    background-color: #f0f0f0
+    padding: 10px
 
 .nav-container
     position: fixed
@@ -147,8 +162,15 @@
     align-items: center
     justify-content: center
 
-.main
-    width: 100px
+.content
+    flex-grow: 1
+    background-color: #fff
+    padding: 20px
+
+.sidebar-right
+    width: 200px
+    background-color: #f0f0f0
+    padding: 10px
 
 // .right-container
 //     grid-column: 3 / span 2 // Span 2 columns from the 3rd column
