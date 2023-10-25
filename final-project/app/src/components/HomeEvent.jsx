@@ -29,7 +29,7 @@ function HomeEvent(props) {
   //event container
   return <div>
     <div className='event-container'>
-      <div className="event-form">
+      <div className="event-wrapper">
         <div className='event-row'>
           <i><MdPeople /></i>
           <p className='event-participant'>Participants: {event.participants.length}</p>

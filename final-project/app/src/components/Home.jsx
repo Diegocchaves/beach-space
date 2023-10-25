@@ -86,7 +86,7 @@ function Home({ onUserLogout }) {
         <ul className='toplist-wrapper'>
           <li className='toplist'>
             <i>< BsPlus /></i>
-            <Link onClick={handleEventCreatorClick} to="eventCreator" smooth={true} duration={500}>New Event</Link>
+            <Link onClick={handleEventCreatorClick} to="eventCreator" >New Event</Link>
           </li>
         </ul>
       </header>
@@ -103,17 +103,17 @@ function Home({ onUserLogout }) {
 
             {/* feed */}
             <div className='feed'>
-              <Link onClick={handleHomeClick} smooth={true} duration={500}>New Feeds</Link>
+              <Link onClick={handleHomeClick} >New Feeds</Link>
             </div>
 
             <ul className='leftlist-wrapper'>
               <li className='list'>
                 <i><MdBeachAccess size={18} /></i>
-                <Link onClick={handleMyEventListClick} smooth={true} duration={500}>Events</Link>
+                <Link onClick={handleMyEventListClick} >Events</Link>
               </li>
               <li className='list'>
                 <i><MdFactCheck size={18} /></i>
-                <Link onClick={handleTargetedEventClick} smooth={true} duration={500}>Scheduled </Link>
+                <Link onClick={handleTargetedEventClick} >Scheduled </Link>
               </li>
               <li className='list'>
                 <i><MdPerson size={18} /></i>

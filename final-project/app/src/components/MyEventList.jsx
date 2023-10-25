@@ -38,15 +38,17 @@ function MyEventList({ timestamp }) {
   logger.info('render')
 
   return <div>
-    <h1 className='Description__pag'>My Events</h1>
+    <h1 className='my-event-list-description'>My Events</h1>
     {events && events.length ?
-      <ul className="myEventList__list">
-        {events.map(event => <li key={event.id}>
-          <MyEvent eventId={event.id} title={event.title} description={event.description} location={event.location} eventDate={event.eventDate} onRemove={handleRemoveEvent} />
-        </li>)}
-      </ul>
+      <div className='my-event-list-container'>
+        <ul className="my-event-list-presentation">
+          {events.map(event => <li key={event.id}>
+            <MyEvent eventId={event.id} title={event.title} description={event.description} location={event.location} eventDate={event.eventDate} onRemove={handleRemoveEvent} />
+          </li>)}
+        </ul>
+      </div>
       :
-      <p className='myEventList__p' >no event yet</p>}
+      <p className='my-event-list-p' >no event yet</p>}
   </div>
 
 }
