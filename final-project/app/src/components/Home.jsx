@@ -83,19 +83,19 @@ function Home({ onUserLogout }) {
     <div className='home-container'>
       {/* top navegation bar */}
       <header className='top-container'>
-        <ul className='toplist-wrapper'>
-          <li className='toplist'>
+        <div className='toplist-wrapper'>
+          <div className='toplist'>
             <i>< BsPlus /></i>
-            <Link onClick={handleEventCreatorClick} to="eventCreator" >New Event</Link>
-          </li>
-        </ul>
+            <a href='#' onClick={handleEventCreatorClick} to="eventCreator" >New Event</a>
+          </div>
+        </div>
       </header>
 
       {/* Main content area */}
       <main className='main-content'>
         {/* Left Sidebar */}
         <aside className="sidebar-left">
-          <div className="left-container">
+          <nav className="left-container">
             <div className='left-head' onClick={handleHomeClick} >
               <img src="dc.jpg" alt=""></img>
               <h1 style={{ width: '100px' }}>{name}</h1 >
@@ -103,26 +103,25 @@ function Home({ onUserLogout }) {
 
             {/* feed */}
             <div className='feed'>
-              <Link onClick={handleHomeClick} >New Feeds</Link>
+              <a href='#' onClick={handleHomeClick} >New Feeds</a>
             </div>
 
-            <ul className='leftlist-wrapper'>
-              <li className='list'>
+            <div className='leftlist-wrapper'>
+              <div className='list'>
                 <i><MdBeachAccess size={18} /></i>
-                <Link onClick={handleMyEventListClick} >Events</Link>
-              </li>
-              <li className='list'>
+                <a href='#' onClick={handleMyEventListClick} >Events</a>
+              </div>
+              <div className='list'>
                 <i><MdFactCheck size={18} /></i>
-                <Link onClick={handleTargetedEventClick} >Scheduled </Link>
-              </li>
-              <li className='list'>
+                <a href='#' onClick={handleTargetedEventClick} >Scheduled </a>
+              </div>
+              <div className='list'>
                 <i><MdPerson size={18} /></i>
-                <Link onClick={handleProfileClick} duration={500} >Profile </Link>
-              </li>
-            </ul>
-          </div>
+                <a href='#' onClick={handleProfileClick} duration={500} >Profile </a>
+              </div>
+            </div>
+          </nav>
         </aside>
-
         {/* ROUTES */}
         <div className='content'>
           <Routes>
