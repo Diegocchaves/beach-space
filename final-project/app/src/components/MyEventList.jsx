@@ -38,7 +38,7 @@ function MyEventList({ timestamp }) {
   logger.info('render')
 
   return <div>
-    <h1 className='my-event-list-description'>My Events</h1>
+    <h1 className='my-event-list-title'>My Events</h1>
     {events && events.length ?
       <div className='my-event-list-container'>
         <ul className="my-event-list-presentation">

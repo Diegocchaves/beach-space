@@ -8,7 +8,7 @@ function saveEvent(token, eventId, title, description, location, eventDate, call
   logger.info('call')
 
   validateJwt(token, 'token')
-  validateStringNotEmptyNoSpaces(eventId, 'eventID')
+  // validateStringNotEmptyNoSpaces(eventId, 'eventID')
   validateString(title, 'title')
   validateString(description, 'description')
   validateString(location, 'location')

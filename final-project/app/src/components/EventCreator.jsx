@@ -38,23 +38,25 @@ function EventCreator() {
   logger.info('render')
 
   return isJwtValid(sessionStorage.token) ?
-    <div className="EventCreator">
-      <form className="EventCreator__form" onSubmit={handleSaveSubmit}>
-        <h1 className='Description__pag'>Create Event</h1>
+    <div className="event-creator-container">
+      <form className="event-creator-form" onSubmit={handleSaveSubmit}>
+        <h1 className='event-creator-pag'>Create Event</h1>
 
-        <h4>Name of the event</h4>
-        <textarea className='EventCreator__title' type='text' name="title" placeholder="What the name of the event?"></textarea>
+        <h5>Name of the event</h5>
+        <textarea className='event-creator-title' type='text' name="title" placeholder="What the name of the event?"></textarea>
 
-        <h4>Description</h4>
-        <textarea className='EventCreator__description' type='text' name="description" placeholder="Describe the event" />
+        <h5>Description</h5>
+        <textarea className='event-creator-description' type='text' name="description" placeholder="Describe the event" />
+        <div className='event-creator-input-container'>
+          <i className='event-creator-icon'><MdOutlineLocationOn /></i>
+          <textarea className='event-creator-input' type="text" name='location' placeholder='Add the location of the event' />
+        </div>
+        <div className='event-creator-input-container'>
+          <i className='event-creator-icon'> <MdCalendarToday /></i>
+          <textarea className='event-creator-input' type="text" name='eventDate' placeholder='Indicate the date and time of the event' />
+        </div>
 
-        <MdOutlineLocationOn className="icons EventCreator__icon" />
-        <textarea className='EventCreator__Input' type="text" name='location' placeholder='Add the location of the event' />
-
-        <MdCalendarToday className="icons EventCreator__icon" />
-        <textarea className='EventCreator__Input' type="text" name='eventDate' placeholder='Indicate the date and time of the event' />
-
-        <button className="EventCreator__button">Save</button>
+        <button className="event-creator-button">Save</button>
 
       </form>
 
