@@ -39,9 +39,9 @@ function EventCreator() {
 
   return isJwtValid(sessionStorage.token) ?
     <div className="event-creator-container">
-      <form className="event-creator-form" onSubmit={handleSaveSubmit}>
-        <h1 className='event-creator-pag'>Create Event</h1>
+      <div className='event-creator-pag-container'><h1 className='event-creator-pag'>Create Event</h1></div>
 
+      <form className="event-creator-form" onSubmit={handleSaveSubmit}>
         <h5>Name of the event</h5>
         <textarea className='event-creator-title' type='text' name="title" placeholder="What the name of the event?"></textarea>
 
