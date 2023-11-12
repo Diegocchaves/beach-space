@@ -27,17 +27,21 @@ function Profile() {
       setView('delete-user')
   }
 
-  return <div className="Container">
+  return <div className="profile-container">
 
-    <div className='Profile__buttons'>
-      <button className="Input" onClick={handleChangeNameClick}>Change Name</button>
-      {view === 'change-name' && <ChangeName />}
-
-      <button className="Input" onClick={handleChangePasswordClick}>Change Password</button>
-      {view === 'change-password' && <ChangePassword />}
-
-      <button className="Input" onClick={handleDeleteUserClick}>Delete user</button>
-      {view === 'delete-user' && <DeleteUser />}
+    <div className='profile-wrapper-button'>
+      <div>
+        <button className="profile-input-button" onClick={handleChangeNameClick}>Change Name</button>
+        {view === 'change-name' && <ChangeName />}
+      </div>
+      <div>
+        <button className="profile-input-button" onClick={handleChangePasswordClick}>Change Password</button>
+        {view === 'change-password' && <ChangePassword />}
+      </div>
+      <div>
+        <button className="profile-input-button" onClick={handleDeleteUserClick}>Delete user</button>
+        {view === 'delete-user' && <DeleteUser />}
+      </div>
     </div>
   </div>
 }

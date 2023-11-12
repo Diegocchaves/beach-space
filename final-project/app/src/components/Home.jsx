@@ -10,9 +10,9 @@ import TargetedEventList from './TargetedEventList'
 import { isJwtValid } from 'validators'
 import './Home.sass'
 import { useNavigate, Routes, Route } from 'react-router-dom'
-import { MdBeachAccess, MdFactCheck, MdPerson } from 'react-icons/md'
+import { MdBeachAccess, MdFactCheck, MdPerson, MdMenu } from 'react-icons/md'
 import { BsPlus } from 'react-icons/bs'
-import { Link } from 'react-scroll'
+
 
 function Home({ onUserLogout }) {
   const logger = new Logger('Home')
@@ -101,24 +101,29 @@ function Home({ onUserLogout }) {
               <h1 style={{ width: '100px' }}>{name}</h1 >
             </div>
 
-            {/* feed */}
+            {/* Feed */}
             <div className='feed'>
               <a href='#' onClick={handleHomeClick} >New Feeds</a>
             </div>
 
+            {/* Menu */}
             <div className='leftlist-wrapper'>
               <div className='list'>
-                <i><MdBeachAccess size={18} /></i>
+                <i><MdBeachAccess /></i>
                 <a href='#' onClick={handleMyEventListClick} >Events</a>
               </div>
               <div className='list'>
-                <i><MdFactCheck size={18} /></i>
+                <i><MdFactCheck /></i>
                 <a href='#' onClick={handleTargetedEventClick} >Scheduled </a>
               </div>
               <div className='list'>
-                <i><MdPerson size={18} /></i>
+                <i><MdPerson /></i>
                 <a href='#' onClick={handleProfileClick} duration={500} >Profile </a>
               </div>
+            </div>
+            <div className='menu'>
+              <i><MdMenu /></i>
+              <h4>Menu</h4>
             </div>
           </nav>
         </aside>
