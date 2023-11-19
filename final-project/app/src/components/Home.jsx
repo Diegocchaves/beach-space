@@ -7,6 +7,7 @@ import HomeEventList from './HomeEventList'
 import Profile from './Profile'
 import EventCreator from './EventCreator'
 import TargetedEventList from './TargetedEventList'
+import MoreMenu from './MoreMenu'
 import { isJwtValid } from 'validators'
 import './Home.sass'
 import { useNavigate, Routes, Route } from 'react-router-dom'
@@ -17,15 +18,13 @@ import { BsPlus } from 'react-icons/bs'
 function Home({ onUserLogout }) {
   const logger = new Logger('Home')
 
+
   logger.info('call')
 
   const [name, setName] = useState(null)
   const { handleFeedback } = useContext(Context)
   const navigate = useNavigate()
-
-  const handleLogoutClick = () => {
-    handleLogout()
-  }
+  const [view, setView] = useState(null);
 
   const handleLogout = () => {
     onUserLogout()
@@ -77,6 +76,14 @@ function Home({ onUserLogout }) {
     navigate('/targetedEventList')
   }
 
+  const toggleMenu = () => {
+    if (view === 'more-menu')
+      setView(null)
+    else
+      setView('more-menu')
+  };
+
+
   logger.info('render')
 
   return isJwtValid(sessionStorage.token) ?
@@ -121,9 +128,12 @@ function Home({ onUserLogout }) {
                 <a href='#' onClick={handleProfileClick} duration={500} >Profile </a>
               </div>
             </div>
-            <div className='menu'>
-              <i><MdMenu /></i>
-              <h4>Menu</h4>
+            <div className='more-container'>
+              <div className='more-wrapper'>
+                <i><MdMenu /></i>
+                <button className='more-buttom' onClick={toggleMenu}>More</button>
+                {view === 'more-menu' && <MoreMenu />}
+              </div>
             </div>
           </nav>
         </aside>
@@ -135,6 +145,7 @@ function Home({ onUserLogout }) {
             <Route path="/myEventList" element={<MyEventList />} />
             <Route path="/targetedEventList" element={<TargetedEventList />} />
             <Route path="/profile" element={<Profile />} />
+
           </Routes>
         </div>
         {/* Right sidebar */}
