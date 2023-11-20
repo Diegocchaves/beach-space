@@ -76,12 +76,12 @@ function Home({ onUserLogout }) {
     navigate('/targetedEventList')
   }
 
-  const toggleMenu = () => {
-    if (view === 'more-menu')
-      setView(null)
-    else
-      setView('more-menu')
-  };
+  // const toggleMenu = () => {
+  //   if (view === 'more-menu')
+  //     setView(null)
+  //   else
+  //     setView('more-menu')
+  // };
 
 
   logger.info('render')
@@ -131,8 +131,8 @@ function Home({ onUserLogout }) {
             <div className='more-container'>
               <div className='more-wrapper'>
                 <i><MdMenu /></i>
-                <button className='more-buttom' onClick={toggleMenu}>More</button>
-                {view === 'more-menu' && <MoreMenu />}
+                {/* <button className='more-buttom' onClick={toggleMenu}>More</button>
+                {view === 'more-menu' && <MoreMenu />} */}
               </div>
             </div>
           </nav>
@@ -145,7 +145,6 @@ function Home({ onUserLogout }) {
             <Route path="/myEventList" element={<MyEventList />} />
             <Route path="/targetedEventList" element={<TargetedEventList />} />
             <Route path="/profile" element={<Profile />} />
-
           </Routes>
         </div>
         {/* Right sidebar */}
