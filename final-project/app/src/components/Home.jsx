@@ -8,16 +8,16 @@ import Profile from './Profile'
 import EventCreator from './EventCreator'
 import TargetedEventList from './TargetedEventList'
 import MoreMenu from './MoreMenu'
+import './MoreMenu.sass'
 import { isJwtValid } from 'validators'
 import './Home.sass'
 import { useNavigate, Routes, Route } from 'react-router-dom'
-import { MdBeachAccess, MdFactCheck, MdPerson, MdMenu } from 'react-icons/md'
+import { MdBeachAccess, MdFactCheck, MdPerson, MdMenu, MdLogout } from 'react-icons/md'
 import { BsPlus } from 'react-icons/bs'
 
 
 function Home({ onUserLogout }) {
   const logger = new Logger('Home')
-
 
   logger.info('call')
 
@@ -25,10 +25,19 @@ function Home({ onUserLogout }) {
   const { handleFeedback } = useContext(Context)
   const navigate = useNavigate()
   const [view, setView] = useState(null);
+  const [isMenuVisible, setMenuVisibility] = useState(false)
 
   const handleLogout = () => {
     onUserLogout()
   }
+
+  const logout = () => {
+    alert('Logout function here!');
+    // Add your logout logic here, e.g., redirecting to the logout page or clearing session data.
+
+    handleLogout()
+
+  };
 
   useEffect(() => {
     logger.info('componentDidMount')
@@ -74,6 +83,10 @@ function Home({ onUserLogout }) {
   const handleTargetedEventClick = () => {
 
     navigate('/targetedEventList')
+  }
+
+  const handleToggleMenuClick = () => {
+    setMenuVisibility(!isMenuVisible)
   }
 
   // const toggleMenu = () => {
@@ -128,12 +141,28 @@ function Home({ onUserLogout }) {
                 <a href='#' onClick={handleProfileClick} duration={500} >Profile </a>
               </div>
             </div>
+
+            {/* MoreMenu */}
             <div className='more-container'>
               <div className='more-wrapper'>
                 <i><MdMenu /></i>
-                {/* <button className='more-buttom' onClick={toggleMenu}>More</button>
-                {view === 'more-menu' && <MoreMenu />} */}
+                <button className="more-button" onClick={handleToggleMenuClick}>More</button>
               </div>
+              {isMenuVisible && (
+                <div className="options">
+                  <p>Other options...</p>
+                  <i><MdLogout /></i>
+                  <button className="logout-option" onClick={logout}>
+                    Logout
+                  </button>
+                </div>
+              )}
+
+              {/* <div className='more-wrapper'>
+                <i><MdMenu /></i>
+                <button className='more-buttom' onClick={toggleMenu}>More</button>
+                {view === 'more-menu' && <MoreMenu />}
+              </div> */}
             </div>
           </nav>
         </aside>
