@@ -1,44 +1,36 @@
-// import React, { useState } from 'react'
-// import './MoreMenu.sass'
-// import { MdLogout } from 'react-icons/md';
+import React, { useState } from 'react'
+import './MoreMenu.sass'
+import { MdLogout } from 'react-icons/md'
 
-// const MoreMenu = ({ onUserLogout }) => {
-//   const [isMenuVisible, setMenuVisibility] = useState(false);
+const MoreMenu = ({ onUserLogout }) => {
 
-//   const handleLogout = () => {
-//     onUserLogout()
-//   }
 
-//   const toggleMenu = () => {
-//     setMenuVisibility(!isMenuVisible);
-//   };
+  const handleLogout = () => {
+    onUserLogout()
+  }
 
-//   const logout = () => {
-//     alert('Logout function here!');
-//     // Add your logout logic here, e.g., redirecting to the logout page or clearing session data.
+  const onLogOutClick = () => {
+    alert('Logout function here!')
 
-//     handleLogout()
+    handleLogout()
+  }
 
-//   };
+  return (
+    <div className="more-menu">
+      <div className="options-container">
+        <div className='options-wrapper'>
+          <i><MdLogout /></i>
+          <button className="options-logout-buttom" onClick={onLogOutClick}>
+            Logout
+          </button>
+        </div>
+      </div>
 
-//   return (
-//     <div className="more-menu">
-//       {/* <button className="more-button" onClick={toggleMenu}>
-//         More
-//       </button>
-//       {isMenuVisible && (
-//         <div className="options">
-//           <p>Other options...</p>
-//           <span className="logout-option" onClick={logout}>
-//             Logout
-//           </span>
-//         </div>
-//       )} */}
-//     </div>
-//   );
-// };
+    </div>
+  )
+}
 
-// export default MoreMenu;
+export default MoreMenu
 
 
 

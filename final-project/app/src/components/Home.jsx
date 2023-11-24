@@ -146,23 +146,9 @@ function Home({ onUserLogout }) {
             <div className='more-container'>
               <div className='more-wrapper'>
                 <i><MdMenu /></i>
-                <button className="more-button" onClick={handleToggleMenuClick}>More</button>
+                <button className="more-buttom" onClick={handleToggleMenuClick}>More</button>
               </div>
-              {isMenuVisible && (
-                <div className="options">
-                  <p>Other options...</p>
-                  <i><MdLogout /></i>
-                  <button className="logout-option" onClick={logout}>
-                    Logout
-                  </button>
-                </div>
-              )}
-
-              {/* <div className='more-wrapper'>
-                <i><MdMenu /></i>
-                <button className='more-buttom' onClick={toggleMenu}>More</button>
-                {view === 'more-menu' && <MoreMenu />}
-              </div> */}
+              {isMenuVisible && (<MoreMenu />)}
             </div>
           </nav>
         </aside>
