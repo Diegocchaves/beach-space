@@ -12,7 +12,7 @@ import './MoreMenu.sass'
 import { isJwtValid } from 'validators'
 import './Home.sass'
 import { useNavigate, Routes, Route } from 'react-router-dom'
-import { MdBeachAccess, MdFactCheck, MdPerson, MdMenu, MdLogout } from 'react-icons/md'
+import { MdBeachAccess, MdFactCheck, MdPerson, MdLogout, MdAddBox, MdHome, MdAccountCircle } from 'react-icons/md'
 import { BsPlus } from 'react-icons/bs'
 
 
@@ -31,7 +31,7 @@ function Home({ onUserLogout }) {
     onUserLogout()
   }
 
-  const logout = () => {
+  const handleLogOutClick = () => {
     alert('Logout function here!');
     // Add your logout logic here, e.g., redirecting to the logout page or clearing session data.
 
@@ -101,57 +101,54 @@ function Home({ onUserLogout }) {
 
   return isJwtValid(sessionStorage.token) ?
     <div className='home-container'>
-      {/* top navegation bar */}
-      <header className='top-container'>
-        <div className='toplist-wrapper'>
-          <div className='toplist'>
-            <i>< BsPlus /></i>
-            <a href='#' onClick={handleEventCreatorClick} to="eventCreator" >New Event</a>
-          </div>
-        </div>
-      </header>
 
       {/* Main content area */}
       <main className='main-content'>
         {/* Left Sidebar */}
         <aside className="sidebar-left">
           <nav className="left-container">
-            <div className='left-head' onClick={handleHomeClick} >
-              <img src="dc.jpg" alt=""></img>
-              <h1 style={{ width: '100px' }}>{name}</h1 >
+            <div className='home-logo' onClick={handleHomeClick}>
+              <img src="bs-new.png" alt="Logo" />
             </div>
 
-            {/* Feed */}
-            <div className='feed'>
-              <a href='#' onClick={handleHomeClick} >New Feeds</a>
-            </div>
-
-            {/* Menu */}
             <div className='leftlist-wrapper'>
+              {/* Home */}
+              <div className='list'>
+                <i><MdHome /></i>
+                <a href='#' onClick={handleHomeClick} >Home</a>
+              </div>
+              <div className='list'>
+                <i><MdAddBox /></i>
+                <a href='#' onClick={handleEventCreatorClick} >New Event</a>
+              </div>
               <div className='list'>
                 <i><MdBeachAccess /></i>
-                <a href='#' onClick={handleMyEventListClick} >Events</a>
+                <a href='#' onClick={handleMyEventListClick} >My Events</a>
               </div>
               <div className='list'>
                 <i><MdFactCheck /></i>
-                <a href='#' onClick={handleTargetedEventClick} >Scheduled </a>
+                <a href='#' onClick={handleTargetedEventClick} >RSVPed </a>
               </div>
               <div className='list'>
-                <i><MdPerson /></i>
-                <a href='#' onClick={handleProfileClick} duration={500} >Profile </a>
+                <i><MdAccountCircle /></i>
+                <a href='#' onClick={handleProfileClick} >Profile</a>
+
               </div>
             </div>
-
-            {/* MoreMenu */}
-            <div className='more-container'>
-              <div className='more-wrapper'>
-                <i><MdMenu /></i>
-                <button className="more-buttom" onClick={handleToggleMenuClick}>More</button>
+            {/* Account */}
+            <div className='account-container'>
+              <div className='account-link'>
+                <i><MdPerson /></i>
+                <a href='#'>Account </a>
               </div>
-              {isMenuVisible && (<MoreMenu />)}
+            </div>
+            <div className='signout-buttom-container'>
+              <i><MdLogout /></i>
+              <button className='signout-buttom' onClick={handleLogOutClick}>Sign out</button>
             </div>
           </nav>
         </aside>
+
         {/* ROUTES */}
         <div className='content'>
           <Routes>
@@ -162,34 +159,23 @@ function Home({ onUserLogout }) {
             <Route path="/profile" element={<Profile />} />
           </Routes>
         </div>
-        {/* Right sidebar */}
-        <aside class="sidebar-right">
-          <div>
 
+        {/* Right sidebar */}
+        {/* <aside class="sidebar-right">
+          <div>
           </div>
 
-        </aside>
+        </aside> */}
       </main>
       <div>
       </div>
-
-
-
     </div > : <></>
 }
 
 export default Home
 
 
-
-{/* footer
-      <footer className="Home__footer">
-        <nav className='Home__footer-nav'>
-          <a href="#" onClick={handleHomeClick}>Home</a>
-          <a href="#" onClick={handleMyEventListClick}>My events</a>
-          <a href="#" onClick={handleTargetedEventClick}>Events Targeted</a>
-          <a href="#" onClick={handleProfileClick}>Profile</a>
-        </nav>
-
-      </footer> */}
-
+{/* <div className='profile-img-container' onClick={handleHomeClick} >
+  <img src="dc.jpg" alt=""></img>
+  <h1 style={{ width: '100px' }}>{name}</h1 >
+</div> */}

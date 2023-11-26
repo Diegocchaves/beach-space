@@ -5,116 +5,43 @@
     width: 100%
     min-width: 100vw
 
-.top-container
-    background-color: #fff
-    color: #333
-    padding: 10px
-    text-align: center
-    position: fixed
-    top: 0
-    left: 0
-    right: 0
-    z-index: 1000
-
-.top-container .toplist-wrapper
-    width: 100%
-    display: flex
-    height: 50px
-    justify-content: space-around
-    padding: 2px
-    margin: 7px
-
-.top-container .toplist-wrapper .toplist
-    width: 7rem
-    display: flex
-    gap: 5px
-    align-items: center
-    justify-content: center
-
-.top-container .toplist-wrapper .toplist i
-    display: flex
-    width: 20px
-    height: 20px
-    color: #1a1a1a
-    align-items: center
-    justify-content: center
-
-.top-container .toplist-wrapper .toplist a
-    font-size: 13px
-
 .main-content
     display: flex
     flex-direction: column
     justify-content: space-between
-    margin: 14px
+    margin: 0px
 
 .sidebar-left
-    width: 250px
+    display: flow-root
+    width: 228px
     background-color: #f0f0f0
     padding: 10px
     position: fixed
-    top: 4rem
+    top: 0
     left: 0
     bottom: 0
 
-.nav-container
-    position: fixed
-    height: 100%
-    width: 200px
-    margin: 15px
-    display: flex
-    flex-direction: column
-    justify-content: space-between
-    align-items: center
-
 .left-container
-    height: 80%
-
-.left-container .left-head
-    width: 80%
-    margin: 20px auto
-    display: flex
-    flex-direction: column
-    justify-content: space-between
-    align-items: center
-
-.left-container .left-head img
-    width: 50%
-    border: 1px solid #1a1a1a
-    border-radius: 50px
-
-.left-container .left-head h1
-    justify-content: center
-    text-align: center
-    font-size: 18px
-    color: #1a1a1a
-
-.left-container .feed
-    width: 100%
-    height: 35px
-
-    background: #1a1a1a
-    border: 1px solid #91abbe
-    border-radius: 12px
-    cursor: pointer
-    display: flex
-    justify-content: center
-    align-items: center
-
-.left-container .feed a
-    color: #fff
-    font-size: 14px
+    height: 100%
 
 .left-container .feed:hover
     background: #91abbe
+
+.left-container  .home-logo
+    width: 100%
+    margin: 0 10%
+    display: flow-root
+
+.left-container  .home-logo img
+    width: 50%
 
 .left-container .leftlist-wrapper
     display: flex
     flex-direction: column
     justify-content: space-between
-    height: 27%
+    height: 40%
     width: 100%
-    margin-top: 5rem
+    margin-top: 2rem
     margin-bottom: 0
     color: #1a1a1a
     list-style-type: none
@@ -123,49 +50,68 @@
 
 .left-container .leftlist-wrapper .list
     display: flex
-    gap: 5px
+    gap: 8px
     align-items: center
-    margin: 0 25%
+    margin: 0 10%
 
 .left-container .leftlist-wrapper .list:hover
     scale: 1.09
     transition-duration: 500ms
 
-.left-container .leftlist-wrapper .list a
-    font-size: 15px
-    font-weight: bold
-
 .left-container .leftlist-wrapper .list i
     display: flex
-    width: 25px
-    height: 25px
-    color: #1a1a1a
+    width: 21px
+    height: 21px
+    color: #000000
     align-items: center
     justify-content: center
 
-.left-container .more-container
-    display: flex
-    margin-top: 130px
-    justify-content: center
-    flex-direction: column
-
-.left-container  .more-wrapper
-    display: flex
-    gap: 5px
-    align-items: center
-    margin: 0 25%
-
-.left-container .more-wrapper i
-    display: flex
-    width: 25px
-    height: 25px
-    color: #1a1a1a
-    align-items: center
-    justify-content: center
-
-.left-container .more-wrapper .more-buttom
+.left-container .more-buttom
     cursor: pointer
     border: none
+
+.left-container .account-container
+    width: 100%
+    height: 30%
+    display: flex
+    flex-direction: column
+    justify-content: space-evenly
+    align-items: baseline
+
+.left-container .account-container .account-link
+    display: flex
+    gap: 8px
+    align-items: center
+    justify-content: center
+    margin: 0 10%
+
+.left-container .account-container .account-link i
+    display: flex
+    width: 21px
+    height: 21px
+    color: #1a1a1a
+    align-items: center
+    justify-content: center
+
+.left-container  .signout-buttom-container
+    display: flex
+    gap: 8px
+    align-items: center
+    justify-content: flex-start
+    margin: 0 10%
+
+.left-container .signout-buttom-container i
+    display: flex
+    width: 21px
+    height: 21px
+    color: #1a1a1a
+    align-items: center
+    justify-content: center
+
+.left-container .signout-buttom-container .signout-buttom
+    border: none
+    cursor: pointer
+    font-size: 18px
 
 .content
     margin: 0 220px
@@ -173,11 +119,15 @@
     background-color: #fff
     padding-top: 60px
 
-.sidebar-right
-    width: 250px
-    background-color: #f0f0f0
-    padding: 10px
-    position: fixed
-    top: 4rem
-    right: 0
-    bottom: 0
+// .left-container .profile-img-container
+//     width: 70%
+//     margin: 20px auto
+//     display: flex
+//     flex-direction: column
+//     justify-content: space-between
+//     align-items: center
+
+// .left-container .profile-container img
+//     width: 50%
+//     border: 1px solid #1a1a1a
+//     border-radius: 50px
