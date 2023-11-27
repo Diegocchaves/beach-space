@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from 'react'
+import { useEffect, useContext, useState } from 'react'
 import Logger from 'loggy'
 import Context from './Context'
 import retrieveUser from '../logic/retrieveUser'
@@ -7,25 +7,22 @@ import HomeEventList from './HomeEventList'
 import Profile from './Profile'
 import EventCreator from './EventCreator'
 import TargetedEventList from './TargetedEventList'
-import MoreMenu from './MoreMenu'
+import Account from './Account'
 import './MoreMenu.sass'
 import { isJwtValid } from 'validators'
 import './Home.sass'
 import { useNavigate, Routes, Route } from 'react-router-dom'
 import { MdBeachAccess, MdFactCheck, MdPerson, MdLogout, MdAddBox, MdHome, MdAccountCircle } from 'react-icons/md'
-import { BsPlus } from 'react-icons/bs'
-
 
 function Home({ onUserLogout }) {
   const logger = new Logger('Home')
 
   logger.info('call')
 
-  const [name, setName] = useState(null)
   const { handleFeedback } = useContext(Context)
   const navigate = useNavigate()
-  const [view, setView] = useState(null);
-  const [isMenuVisible, setMenuVisibility] = useState(false)
+  const [name, setName] = useState(null)
+
 
   const handleLogout = () => {
     onUserLogout()
@@ -33,11 +30,9 @@ function Home({ onUserLogout }) {
 
   const handleLogOutClick = () => {
     alert('Logout function here!');
-    // Add your logout logic here, e.g., redirecting to the logout page or clearing session data.
 
     handleLogout()
-
-  };
+  }
 
   useEffect(() => {
     logger.info('componentDidMount')
@@ -77,7 +72,7 @@ function Home({ onUserLogout }) {
   const handleProfileClick = event => {
     event.preventDefault()
 
-    navigate('/profile')
+    navigate(`/profile/${name}`)
   }
 
   const handleTargetedEventClick = () => {
@@ -85,17 +80,9 @@ function Home({ onUserLogout }) {
     navigate('/targetedEventList')
   }
 
-  const handleToggleMenuClick = () => {
-    setMenuVisibility(!isMenuVisible)
+  const handleAccountClick = () => {
+    navigate('/account')
   }
-
-  // const toggleMenu = () => {
-  //   if (view === 'more-menu')
-  //     setView(null)
-  //   else
-  //     setView('more-menu')
-  // };
-
 
   logger.info('render')
 
@@ -139,7 +126,7 @@ function Home({ onUserLogout }) {
             <div className='account-container'>
               <div className='account-link'>
                 <i><MdPerson /></i>
-                <a href='#'>Account </a>
+                <a href='#' onClick={handleAccountClick}>Account </a>
               </div>
             </div>
             <div className='signout-buttom-container'>
@@ -156,16 +143,17 @@ function Home({ onUserLogout }) {
             <Route path="/eventCreator" element={<EventCreator />} />
             <Route path="/myEventList" element={<MyEventList />} />
             <Route path="/targetedEventList" element={<TargetedEventList />} />
-            <Route path="/profile" element={<Profile />} />
+            <Route path="/profile/:name" element={<Profile />} />
+            <Route path='/account' element={<Account />} />
           </Routes>
         </div>
 
         {/* Right sidebar */}
-        {/* <aside class="sidebar-right">
+        <aside class="sidebar-right">
           <div>
           </div>
 
-        </aside> */}
+        </aside>
       </main>
       <div>
       </div>
@@ -174,8 +162,3 @@ function Home({ onUserLogout }) {
 
 export default Home
 
-
-{/* <div className='profile-img-container' onClick={handleHomeClick} >
-  <img src="dc.jpg" alt=""></img>
-  <h1 style={{ width: '100px' }}>{name}</h1 >
-</div> */}
