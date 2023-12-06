@@ -12,7 +12,7 @@ describe('retrieveUser', () => {
     let user
 
     beforeEach(() => {
-      user = new User({ name: 'Diego Carvalho', email: 'diegocarve@gmail.com', password: '1234' })
+      user = new User({ name: 'Diego', lastName: 'Carvalho', email: 'diegocarve@gmail.com', password: '1234' })
 
       return user.save()
     })
@@ -21,7 +21,8 @@ describe('retrieveUser', () => {
       retrieveUser(user.id)
         .then(user => {
           expect(user.constructor).to.equal(Object)
-          expect(user.name).to.equal('Diego Carvalho')
+          expect(user.name).to.equal('Diego')
+          expect(user.lastName).to.equal('Carvalho')
           expect(user.email).to.equal('diegocarve@gmail.com')
           expect(user.password).to.be.undefined
           expect(user.id).to.be.undefined

@@ -14,9 +14,9 @@ describe('deleteTargetedEvent', () => {
     let diegoUser, crisUser
 
     beforeEach(() => {
-      crisUser = new User({ name: 'Cris', email: 'cris@gmail.com', password: '1234' })
+      crisUser = new User({ name: 'Cris', lastName: 'Retu', email: 'cris@gmail.com', password: '1234' })
       // brunoUser = new User({ name: 'Bruno', email: 'bruno@gmail.com', password: '1234' })
-      diegoUser = new User({ name: 'Diego', email: 'diego1@gmail.com', password: '1234' })
+      diegoUser = new User({ name: 'Diego', lastName: 'Carvalho', email: 'diego1@gmail.com', password: '1234' })
 
       return Promise.all([diegoUser.save()])
     })

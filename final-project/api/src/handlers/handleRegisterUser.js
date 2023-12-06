@@ -3,9 +3,9 @@ const { handleErrorsAndRespond } = require('./helpers')
 
 module.exports = (req, res) => {
   try {
-    const { body: { name, email, password } } = req
+    const { body: { name, lastName, email, password } } = req
 
-    registerUser(name, email, password)
+    registerUser(name, lastName, email, password)
       .then(() => res.status(201).send())
       .catch(error => handleErrorsAndRespond(error, res))
   } catch (error) {

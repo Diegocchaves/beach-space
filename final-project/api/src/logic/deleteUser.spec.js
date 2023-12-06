@@ -14,7 +14,7 @@ describe('deleteUser', () => {
     let user
 
     beforeEach(() => {
-      user = new User({ name: 'Diego Carvalho', email: 'diegocarve@gmail.com', password: '1234' })
+      user = new User({ name: 'Diego', lastName: 'Carvalho', email: 'diegocarve@gmail.com', password: '1234' })
 
       return user.save()
     })

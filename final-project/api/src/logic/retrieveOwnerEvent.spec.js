@@ -13,7 +13,7 @@ describe('retrieveOwnerEvent', () => {
     let owner
 
     beforeEach(() => {
-      owner = new User({ name: 'Papa Gayo', email: 'papagayo@gmail.com', password: '1234' })
+      owner = new User({ name: 'Papa', lastName: 'Gayo', email: 'papagayo@gmail.com', password: '1234' })
 
       return owner.save()
     })

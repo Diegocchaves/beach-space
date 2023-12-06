@@ -15,7 +15,7 @@ describe('updateEvent', () => {
     let userId
 
     beforeEach(() => {
-      return User.create({ name: 'Leo Calvo', email: 'leocalvo@gmail.com', password: '1234' })
+      return User.create({ name: 'Leo', lastName: 'Calvo', email: 'leocalvo@gmail.com', password: '1234' })
         .then(user => {
           userId = user.id
         })

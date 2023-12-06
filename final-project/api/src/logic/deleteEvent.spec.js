@@ -15,7 +15,7 @@ describe('deleteEvent', () => {
     let userId
 
     beforeEach(() => {
-      return User.create({ name: 'Nathy Girl', email: 'nath@gmail.com', password: '1234' })
+      return User.create({ name: 'Nathy', lastName: 'Girl', email: 'nath@gmail.com', password: '1234' })
         .then((user) => {
           userId = user.id
 

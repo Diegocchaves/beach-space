@@ -14,21 +14,21 @@ describe('updateUser', () => {
     let user
 
     beforeEach(() => {
-      user = new User({ name: 'Diego Carvalho', email: 'diegocarve@gmail.com', password: '1234' })
+      user = new User({ name: 'Diego', lastName: 'Carvalho', email: 'diegocarve@gmail.com', password: '1234' })
 
       return user.save()
     })
 
     it('succeeds on correct user data', () =>
-      updateUser(user.id, 'Diego Carvalho', 'diegocarve@gmail.com', '1234')
+      updateUser(user.id, 'Diego', 'Carvalho', 'diegocarve@gmail.com', '1234')
         .then(result => {
           expect(result).to.be.undefined
-
 
           return User.findById(user.id)
         })
         .then(user => {
-          expect(user.name).to.equal('Diego Carvalho')
+          expect(user.name).to.equal('Diego')
+          expect(user.lastName).to.equal('Carvalho')
           expect(user.email).to.equal('diegocarve@gmail.com')
           expect(user.password).to.equal('1234')
 
@@ -38,7 +38,7 @@ describe('updateUser', () => {
     it('fails on incorrect user id', () => {
       const wrongId = new ObjectId().toString()
 
-      return updateUser(wrongId, 'Diego Carvalho', 'diegocarve@gmail.com', '1234')
+      return updateUser(wrongId, 'Diego', 'Carvalho', 'diegocarve@gmail.com', '1234')
         .then(result => {
 
           throw new Error('should not reach this point')
@@ -54,7 +54,7 @@ describe('updateUser', () => {
     it('fails on unexisting user id', () => {
       const unexistingUserId = new ObjectId().toString()
 
-      return updateUser(unexistingUserId, 'Diego Carvalho', 'diego@gmail.com', '1234')
+      return updateUser(unexistingUserId, 'Diego', 'Carvalho', 'diego@gmail.com', '1234')
         .then(result => {
           throw new Error('should not reach this point')
         })

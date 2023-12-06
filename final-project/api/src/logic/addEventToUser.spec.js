@@ -13,7 +13,7 @@ describe('addEventToUser', () => {
     let diegoUser
 
     beforeEach(() => {
-      diegoUser = new User({ name: 'Diego Carvalho', email: 'diegocarve@gmail.com', password: '1234' })
+      diegoUser = new User({ name: 'Diego', lastName: 'Carvalho', email: 'diegocarve@gmail.com', password: '1234' })
 
       return diegoUser.save()
 
@@ -63,12 +63,12 @@ describe('addEventToUser', () => {
       })
     })
   })
-  debugger
+
   describe('addUsertoEvent', () => {
     let jordiUser
 
     beforeEach(() => {
-      jordiUser = new User({ name: 'Jordi Shefer', email: 'jordishefer@gmail.com', password: '1234' })
+      jordiUser = new User({ name: 'Jordi', lastName: 'Shefer', email: 'jordishefer@gmail.com', password: '1234' })
 
       return jordiUser.save()
 

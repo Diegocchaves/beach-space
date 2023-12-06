@@ -13,7 +13,7 @@ describe('retrieveEvent', () => {
     let user
 
     beforeEach(() => {
-      user = new User({ name: 'Papa Gayo', email: 'papagayo@gmail.com', password: '1234' })
+      user = new User({ name: 'Papa', lastName: 'Gayo', email: 'papagayo@gmail.com', password: '1234' })
 
       return user.save()
     })
