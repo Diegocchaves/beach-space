@@ -72,7 +72,7 @@ function Home({ onUserLogout }) {
   const handleProfileClick = event => {
     event.preventDefault()
 
-    navigate(`/profile/${name}`)
+    navigate('/profile')
   }
 
   const handleTargetedEventClick = () => {
@@ -143,7 +143,7 @@ function Home({ onUserLogout }) {
             <Route path="/eventCreator" element={<EventCreator />} />
             <Route path="/myEventList" element={<MyEventList />} />
             <Route path="/targetedEventList" element={<TargetedEventList />} />
-            <Route path="/profile/:name" element={<Profile />} />
+            <Route path="/profile" element={<Profile />} />
             <Route path='/account' element={<Account />} />
           </Routes>
         </div>

@@ -2,12 +2,13 @@ import Logger from 'loggy'
 import Apium from 'apium'
 import { validateString, validateEmail, validatePassword } from 'validators'
 
-function registerUser(name, email, password, callback) {
+function registerUser(name, lastName, email, password, callback) {
   const logger = new Logger('registerUser')
 
   logger.info('call')
 
   validateString(name, 'name')
+  validateString(lastName, 'lastName')
   validateEmail(email, 'email')
   validatePassword(password)
 
@@ -19,7 +20,7 @@ function registerUser(name, email, password, callback) {
     headers: {
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({ name, email, password })
+    body: JSON.stringify({ name, lastName, email, password })
   }, (error, { status, payload }) => {
     logger.info('response')
 
