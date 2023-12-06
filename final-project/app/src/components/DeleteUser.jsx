@@ -38,10 +38,9 @@ function DeleteUser() {
 
   return <div>
 
-    <form className="DeleteUser__form" onSubmit={handleFormSubmit}>
-      <input className="Input Input__light" type="password" name="password" placeholder="password" />
-
-      <button className="Button--no-border" >Delete User</button>
+    <form className="delete-user-form" onSubmit={handleFormSubmit}>
+      <input className="Input Input__light" type="password" name="password" placeholder="Password" />
+      <button className="delete-user-buttom" >Delete User</button>
     </form>
   </div>
 }
