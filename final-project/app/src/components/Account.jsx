@@ -4,8 +4,8 @@ function Account() {
 
 
     return (
-        <div className='account-delete-buttom-container'>
-            <h1>Delete user</h1>
+        <div className='account-delete-container'>
+            <h1 className='account-delete'>Delete user</h1>
             {<DeleteUser />}
         </div>
     )

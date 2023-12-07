@@ -22,7 +22,8 @@ function Home({ onUserLogout }) {
   const { handleFeedback } = useContext(Context)
   const navigate = useNavigate()
   const [name, setName] = useState(null)
-
+  const [lastName, setLastName] = useState(null)
+  const [profilePhoto, setProfilePhoto] = useState(null)
 
   const handleLogout = () => {
     onUserLogout()
@@ -47,6 +48,8 @@ function Home({ onUserLogout }) {
           return
         }
         setName(user.name)
+        setLastName(user.lastName)
+        setProfilePhoto(user.profilePhoto)
       })
     else navigate('/login')
   }, [])
@@ -129,6 +132,21 @@ function Home({ onUserLogout }) {
                 <a href='#' onClick={handleAccountClick}>Account </a>
               </div>
             </div>
+            <div className='account-name-container'>
+              <div className='account-name-wrapper'>
+                <div className='account-profile-photo'>
+                  {profilePhoto ? (
+                    <img src={profilePhoto} alt='Profile' />
+                  ) : (
+                    <div className='initials'>{name && name.charAt(0)}{lastName && lastName.charAt(0)}</div>
+                  )}
+                </div>
+                <div className='account-name'>
+                  <p>{name} {lastName}</p>
+                </div>
+                <div />
+              </div>
+            </div>
             <div className='signout-buttom-container'>
               <i><MdLogout /></i>
               <button className='signout-buttom' onClick={handleLogOutClick}>Sign out</button>
@@ -162,3 +180,19 @@ function Home({ onUserLogout }) {
 
 export default Home
 
+{/* <div className='account-name-wrapper'>
+                <div className='account-profile-photo'>
+                  {profilePhoto ? (
+                    <img src={profilePhoto} alt='Profile' />
+                  ) : (
+                    <div className='initials'>{name && name.charAt(0)}{lastName && lastName.charAt(0)}</div>
+                  )}
+                </div>
+                <div className='account-name'>
+                  <button>{name}</button><p>{lastName}</p>
+                </div>
+                <div className='signout-buttom-container'>
+              <i><MdLogout /></i>
+              <button className='signout-buttom' onClick={handleLogOutClick}>Sign out</button>
+
+              </div> */}
