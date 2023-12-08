@@ -24,6 +24,11 @@ function Home({ onUserLogout }) {
   const [name, setName] = useState(null)
   const [lastName, setLastName] = useState(null)
   const [profilePhoto, setProfilePhoto] = useState(null)
+  const [showLogoutContainer, setShowLogoutContainer] = useState(false)
+
+  const handleNameContainerClick = () => {
+    setShowLogoutContainer(!showLogoutContainer);
+  }
 
   const handleLogout = () => {
     onUserLogout()
@@ -103,25 +108,25 @@ function Home({ onUserLogout }) {
 
             <div className='leftlist-wrapper'>
               {/* Home */}
-              <div className='list'>
+              <div className='list' onClick={handleHomeClick} >
                 <i><MdHome /></i>
-                <a href='#' onClick={handleHomeClick} >Home</a>
+                <a href='#' >Home</a>
               </div>
-              <div className='list'>
+              <div className='list' onClick={handleEventCreatorClick}>
                 <i><MdAddBox /></i>
-                <a href='#' onClick={handleEventCreatorClick} >New Event</a>
+                <a href='#'  >New Event</a>
               </div>
-              <div className='list'>
+              <div className='list' onClick={handleMyEventListClick} >
                 <i><MdBeachAccess /></i>
-                <a href='#' onClick={handleMyEventListClick} >My Events</a>
+                <a href='#' >My Events</a>
               </div>
-              <div className='list'>
+              <div className='list' onClick={handleTargetedEventClick}>
                 <i><MdFactCheck /></i>
-                <a href='#' onClick={handleTargetedEventClick} >RSVPed </a>
+                <a href='#'  >RSVPed </a>
               </div>
-              <div className='list'>
+              <div className='list' onClick={handleProfileClick} >
                 <i><MdAccountCircle /></i>
-                <a href='#' onClick={handleProfileClick} >Profile</a>
+                <a href='#' >Profile</a>
 
               </div>
             </div>
@@ -132,7 +137,7 @@ function Home({ onUserLogout }) {
                 <a href='#' onClick={handleAccountClick}>Account </a>
               </div>
             </div>
-            <div className='account-name-container'>
+            <div className='account-name-container' onClick={handleNameContainerClick}>
               <div className='account-name-wrapper'>
                 <div className='account-profile-photo'>
                   {profilePhoto ? (
@@ -144,13 +149,15 @@ function Home({ onUserLogout }) {
                 <div className='account-name'>
                   <p>{name} {lastName}</p>
                 </div>
-                <div />
               </div>
+              {showLogoutContainer && (
+                <div className='signout-buttom-container'>
+                  <i><MdLogout /></i>
+                  <button className='signout-buttom' onClick={handleLogOutClick}>Sign out</button>
+                </div>
+              )}
             </div>
-            <div className='signout-buttom-container'>
-              <i><MdLogout /></i>
-              <button className='signout-buttom' onClick={handleLogOutClick}>Sign out</button>
-            </div>
+
           </nav>
         </aside>
 
@@ -180,19 +187,4 @@ function Home({ onUserLogout }) {
 
 export default Home
 
-{/* <div className='account-name-wrapper'>
-                <div className='account-profile-photo'>
-                  {profilePhoto ? (
-                    <img src={profilePhoto} alt='Profile' />
-                  ) : (
-                    <div className='initials'>{name && name.charAt(0)}{lastName && lastName.charAt(0)}</div>
-                  )}
-                </div>
-                <div className='account-name'>
-                  <button>{name}</button><p>{lastName}</p>
-                </div>
-                <div className='signout-buttom-container'>
-              <i><MdLogout /></i>
-              <button className='signout-buttom' onClick={handleLogOutClick}>Sign out</button>
 
-              </div> */}

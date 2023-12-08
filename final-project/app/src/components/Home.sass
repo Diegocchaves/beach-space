@@ -55,8 +55,20 @@
     margin: 0 10%
 
 .left-container .leftlist-wrapper .list:hover
-    scale: 1.09
-    transition-duration: 500ms
+    cursor: pointer
+    transition: background-color 0.3s ease
+    &:hover
+        width: 185px
+        display: flex
+        border-radius: 10px
+        align-items: center
+        background-color: #d7d7d7b5
+        &:hover
+            display: flex
+            justify-content: center
+
+    // scale: 1.09
+    // transition-duration: 500ms
 
 .left-container .leftlist-wrapper .list i
     display: flex
@@ -84,6 +96,15 @@
     align-items: center
     justify-content: center
     margin: 0 10%
+    &:hover
+        width: 185px
+        display: flex
+        border-radius: 10px
+        align-items: center
+        background-color: #d7d7d7b5
+        &:hover
+            display: flex
+            justify-content: center
 
 .left-container .account-container .account-link i
     display: flex
@@ -94,11 +115,18 @@
     justify-content: center
 
 .left-container  .signout-buttom-container
+    position: absolute
+    top: 615px
+    right: 13px
+    padding: 10px
+    background-color: #d7d7d7b5
+    border: 1px solid #ccc
+    border-radius: 5px
+    box-shadow: 0 0 10px rgb(0 0 0 / 10%)
+    width: 80%
     display: flex
     gap: 8px
     align-items: center
-    justify-content: flex-start
-    margin: 0 10%
 
 .left-container .signout-buttom-container i
     display: flex
@@ -112,6 +140,7 @@
     border: none
     cursor: pointer
     font-size: 18px
+    background-color: transparent
 
 .content
     margin: 0 220px
