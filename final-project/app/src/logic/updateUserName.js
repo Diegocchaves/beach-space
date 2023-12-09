@@ -2,13 +2,14 @@ import Logger from 'loggy'
 import Apium from 'apium'
 import { validateJwt, validateString } from 'validators'
 
-function updateUserName(token, newName, callback) {
+function updateUserName(token, newName, newLastName, callback) {
   const logger = new Logger('updateUserName')
 
   logger.info('call')
 
   validateJwt(token)
   validateString(newName, 'newName')
+  validateString(newLastName, 'newLastName')
 
   logger.info('request')
 
@@ -19,7 +20,7 @@ function updateUserName(token, newName, callback) {
       Authorization: `Bearer ${token}`,
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({ name: newName })
+    body: JSON.stringify({ name: newName, lastName: newLastName })
   }, (error, response) => {
     if (error) return callback(error)
 

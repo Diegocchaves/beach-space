@@ -17,9 +17,10 @@ function ChangeName() {
     event.preventDefault()
 
     const newName = event.target.name.value
+    const newLastName = event.target.lastName.value
 
     try {
-      updateUserName(sessionStorage.token, newName, error => {
+      updateUserName(sessionStorage.token, newName, newLastName, error => {
         if (error) {
           handleFeedback({ level: 'error', message: error.message })
 
@@ -36,9 +37,17 @@ function ChangeName() {
   logger.info('render')
 
   return <div>
-    <form className="ChangeName__form" onSubmit={handleFormSubmit}>
-      <input className="Input Input--light" type="text" name="name" placeholder="name" />
-      <button className="Button--no-border">Save</button>
+    <form className="change-name-form" onSubmit={handleFormSubmit}>
+      <div>
+        <h4>First name</h4>
+        <input className="Input Input--light" type="text" name="name" placeholder="name" />
+      </div>
+      <div>
+        <h4>Last name</h4>
+        <input className="Input Input--light" type="text" name="lastName" placeholder="Last name" />
+      </div>
+      <button className="change-name-buttom">Save</button>
+      <div></div>
     </form>
   </div>
 }
