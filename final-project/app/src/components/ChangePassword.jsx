@@ -35,13 +35,12 @@ function ChangePassword() {
   logger.info('render')
 
   return <div>
-    <form className="ChangePassword__form" onSubmit={handleSubmit}>
-      <input className="Input Input__light" type="password" name="password" placeholder="current password" />
+    <form className="change-password-form" onSubmit={handleSubmit}>
+      <input className="Input Input__light" type="password" name="password" placeholder="Current password" />
+      <input className="Input Input__light" type="password" name="newPassword" placeholder="New password" />
+      <input className="Input Input__light" type="password" name="newPasswordRepeat" placeholder="Repeat new password" />
 
-      <input className="Input Input__light" type="password" name="newPassword" placeholder="new password" />
-      <input className="Input Input__light" type="password" name="newPasswordRepeat" placeholder="repeat new password" />
-
-      <button className="Button--no-border">Save</button>
+      <button className="change-name-buttom">Save</button>
     </form>
   </div>
 }

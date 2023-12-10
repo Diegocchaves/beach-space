@@ -30,11 +30,10 @@ function Profile() {
       <div className='Profile__buttons'>
         {<ChangeName />}
 
-
       </div>
       {/* change password buttom */}
       <div className='Profile__buttons'>
-        <button className="Input" >Change Password</button>
+        <h4 >Change Password</h4>
         {<ChangePassword />}
       </div>
 

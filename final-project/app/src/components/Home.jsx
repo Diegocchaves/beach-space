@@ -131,10 +131,10 @@ function Home({ onUserLogout }) {
               </div>
             </div>
             {/* Account */}
-            <div className='account-container'>
+            <div className='account-container' onClick={handleAccountClick}>
               <div className='account-link'>
                 <i><MdPerson /></i>
-                <a href='#' onClick={handleAccountClick}>Account </a>
+                <a href='#'>Account </a>
               </div>
             </div>
             <div className='account-name-container' onClick={handleNameContainerClick}>
