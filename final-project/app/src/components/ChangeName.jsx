@@ -38,16 +38,25 @@ function ChangeName() {
 
   return <div>
     <form className="change-name-form" onSubmit={handleFormSubmit}>
-      <div>
-        <h4>First name</h4>
-        <input className="Input Input--light" type="text" name="name" placeholder="name" />
+      <div className='change-name-input-wrapper'>
+        <div className='change-name-tittle'>
+          <h4>First name</h4>
+        </div>
+        <div>
+          <input className="Input Input--light" type="text" name="name" placeholder="name" />
+        </div>
       </div>
-      <div>
-        <h4>Last name</h4>
-        <input className="Input Input--light" type="text" name="lastName" placeholder="Last name" />
+      <div className='change-name-input-wrapper'>
+        <div className='change-name-tittle'>
+          <h4>Last name</h4>
+        </div>
+        <div>
+          <input className="Input Input--light" type="text" name="lastName" placeholder="Last name" />
+        </div>
       </div>
+
       <button className="change-name-buttom">Save</button>
-      <div></div>
+
     </form>
   </div>
 }

@@ -20,20 +20,16 @@ function Profile() {
       <div className='image-wrapper'>
         <img src="dc.jpg" alt="photo" />
       </div>
-      {/* <div className='first-name'>
-        <h1></h1>
-      </div> */}
     </div>
 
-    {/* change name buttom */}
+    {/* change name */}
     <div className='profile-wrapper-button'>
       <div className='Profile__buttons'>
         {<ChangeName />}
 
       </div>
-      {/* change password buttom */}
+      {/* change password*/}
       <div className='Profile__buttons'>
-        <h4 >Change Password</h4>
         {<ChangePassword />}
       </div>
 

@@ -36,11 +36,27 @@ function ChangePassword() {
 
   return <div>
     <form className="change-password-form" onSubmit={handleSubmit}>
-      <input className="Input Input__light" type="password" name="password" placeholder="Current password" />
-      <input className="Input Input__light" type="password" name="newPassword" placeholder="New password" />
-      <input className="Input Input__light" type="password" name="newPasswordRepeat" placeholder="Repeat new password" />
-
-      <button className="change-name-buttom">Save</button>
+      <div className='change-password-tittle'>
+        <h4>Current password</h4>
+      </div>
+      <div>
+        <input className="Input Input__light" type="password" name="password" placeholder="Current password" />
+      </div>
+      <div className='change-password-tittle'>
+        <h4>New password</h4>
+      </div>
+      <div>
+        <input className="Input Input__light" type="password" name="newPassword" placeholder="New password" />
+      </div>
+      <div className='change-password-tittle'>
+        <h4>Repeat new password</h4>
+      </div>
+      <div>
+        <input className="Input Input__light" type="password" name="newPasswordRepeat" placeholder="Repeat new password" />
+      </div>
+      <div className='change-password-buttom-wrapper'>
+        <button className="change-password-buttom">Save</button>
+      </div>
     </form>
   </div>
 }
