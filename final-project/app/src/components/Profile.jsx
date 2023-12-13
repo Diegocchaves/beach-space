@@ -29,7 +29,7 @@ function Profile() {
 
       </div>
       {/* change password*/}
-      <div className='Profile__buttons'>
+      <div className='change-password-form-container'>
         {<ChangePassword />}
       </div>
 
