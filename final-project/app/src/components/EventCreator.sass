@@ -2,8 +2,6 @@
     display: flex
     flex-direction: column
     align-items: center
-    min-height: 100vh
-    padding: 20px
 
 .event-creator-pag-container
     position: fixed
@@ -21,16 +19,27 @@
     font-size: 24px
 
 .event-creator-form
-    position: fixed
+    min-width: 600px
+    width: 50%
+    padding: 20px
+    display: flex
+    flex-direction: column
     background-color: #fff
     padding: 40px 15px
     border-radius: 15px
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2)
-    width: 40rem
     margin: 20px auto
     height: 35rem
 
-.event-creator-title,
+.event-creator-title
+    width: 100%
+    padding: 4px
+    margin: 5px 0px
+    border: 1px solid #ccc
+    border-radius: 5px
+::placeholder
+    font-size: 12px
+
 .event-creator-description
     width: 100%
     padding: 4px
@@ -41,10 +50,10 @@
     font-size: 12px
 
 .event-creator-input-container
-    width: 100%
-    padding: 4px
     display: flex
     align-items: center
+    width: 100%
+    padding: 4px
     margin-bottom: 15px
 
 .event-creator-input
@@ -71,3 +80,12 @@
     cursor: pointer
     &:hover
         background-color: #66bbf4
+
+@media screen and (max-width: 768px)
+    .event-creator-input-container
+        flex-direction: column
+        align-items: flex-start
+
+    .event-creator-icon
+        margin-right: 0
+        margin-bottom: 10px
