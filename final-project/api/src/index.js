@@ -21,7 +21,8 @@ const { connect, disconnect } = require('mongoose')
 const { cors } = require('./helpers')
 
   ; (async () => {
-    await connect('mongodb://127.0.0.1:27017/events-db')//mongodb://127.0.0.1:27017
+    console.log('test')
+    await connect(`mongodb+srv://diego_carver:${process.env.DB_PASSWORD}@cluster0.ypbuokm.mongodb.net/events-db`)//mongodb://127.0.0.1:27017
 
     console.log('DB connected')
 
