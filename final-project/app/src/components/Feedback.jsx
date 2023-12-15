@@ -1,5 +1,5 @@
 import './Feedback.sass'
-debugger
+
 function Feedback({ level, message, onTimeout }) {
   setTimeout(onTimeout, 1000)
 
