@@ -24,7 +24,7 @@ function MyEvent(props) {
         }
 
         onRemove(eventId)
-        handleFeedback({ level: 'success', message: 'event has been removed' })
+        handleFeedback({ level: 'success', message: 'Event has been removed!' })
 
       })
   }
@@ -54,13 +54,13 @@ function MyEvent(props) {
   return <div className='my-event-container'>
     <form className="my-event-form" onSubmit={handleSaveSubmit}>
 
-      <textarea className='my-event-title' type='text' name="title" placeholder="Titulo" defaultValue={props.title}></textarea>
+      <input className='my-event-title' type='text' name="title" placeholder="Titulo" defaultValue={props.title}></input>
       <textarea className="my-event-description" type='text' name="text" placeholder="Descripción" defaultValue={props.description}></textarea>
-      <textarea className="my-event-location" type='text' name="location" placeholder="Localización" defaultValue={props.location}></textarea>
-      <textarea className="my-event-date" type='text' name="eventDate" placeholder="Fecha" defaultValue={props.eventDate}></textarea>
+      <input className="my-event-location" type='text' name="location" placeholder="Localización" defaultValue={props.location}></input>
+      <input className="my-event-date" type='text' name="eventDate" placeholder="Fecha" defaultValue={props.eventDate}></input>
 
       <div className='my-event-button-container'>
-        <button className="my-event-event-button" onClick={handleRemoveClick}>cancel</button>
+        <button className="my-event-event-button" onClick={handleRemoveClick}>Cancel</button>
         <button className="my-event-event-button">Save</button>
       </div>
 

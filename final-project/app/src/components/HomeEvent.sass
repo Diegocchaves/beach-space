@@ -32,36 +32,34 @@
     color: #383737
 
 .event-wrapper .event-row p
+    font-family: 'NTR', sans-serif
     margin: 0
 
 .event-title
-    font-family: Poppins
-    font-size: 18px
+    font-size: 20px
+    font-weight: 700
     margin-top: 1.5rem
     background-color: transparent
     border: none
 
 .event-description
-    font-family: Courier New, Courier, monospace
-    font-size: 12px
+    font-size: 14px
     color: black
 
 .event-participant
     margin: -15px 32px
-    font-family: Courier New, Courier, monospace
-    font-size: 11px
+    font-size: 14px
     color: black
 
 .event-location
     margin: 0 27px
-    font-family: Courier New, Courier, monospace
-    font-size: 11px
+    font-size: 14px
     color: black
 
 .event-date
     margin: 0 27px
     font-family: Courier New, Courier, monospace
-    font-size: 11px
+    font-size: 14px
     color: black
 
 .event-button
@@ -73,7 +71,12 @@
 
 .button
     margin: 0 auto
-    border: solid 1px
+    border: solid .5px #383737
     border-radius: 5px
     background: transparent
     width: 9rem
+    &:hover
+        background-color: #a8def6
+        transition-duration: 1s
+        transform: scale(1.05)
+        box-shadow: 0 4px 8px 0 rgba(121, 120, 120, 0.2), 0 6px 20px 0 rgba(101, 100, 100, 0.2)

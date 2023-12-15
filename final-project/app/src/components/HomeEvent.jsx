@@ -22,7 +22,7 @@ function HomeEvent(props) {
         }
         onSignUp()
       })
-    handleFeedback({ level: 'success', message: 'Apuntado' })
+    handleFeedback({ level: 'success', message: 'You are in!' })
   }
 
   logger.info('render')
