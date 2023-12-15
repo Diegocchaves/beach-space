@@ -51,7 +51,7 @@ const { cors } = require('./helpers')
 
     api.use('/api', routes)//ruta
 
-    api.listen(8080, () => console.log('API running'))//client
+    api.listen(process.env.PORT, () => console.log('API running'))//client
 
     process.on('SIGINT', async () => {//para frenar la ejecución 
       await disconnect()//desconectar
