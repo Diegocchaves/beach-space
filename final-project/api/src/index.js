@@ -34,6 +34,9 @@ const { cors } = require('./helpers')
 
     const routes = express.Router()//El router se refiere a cómo los endpoints de una la app (URI) responden a las solicitudes de los clients.
 
+    api.get("/", (req, res) => {
+      res.send("Express on Vercel");
+    });
     routes.post('/users', jsonBodyParser, handleRegisterUser)//registerUser
     routes.post('/users/auth', jsonBodyParser, handleAuthenticateUser)//authenticateUser
     routes.get('/users', handleRetrieveUser)//retrieveUser
