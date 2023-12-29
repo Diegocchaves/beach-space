@@ -65,5 +65,7 @@ const { cors } = require('./helpers')
     })
   })()
 
+module.exports = api
+
 // No sabemos de mongo
 // sabemos de logic y de cliente (insmonmia)
