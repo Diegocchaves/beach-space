@@ -16,7 +16,7 @@ function saveEvent(token, eventId, title, description, location, eventDate, call
 
   logger.info('request')
 
-  const api = new Apium('http://localhost:8080/api')
+  const api = new Apium(`${process.env.REACT_APP_API_URL}`)
 
   if (!eventId)
     api.post('events', {

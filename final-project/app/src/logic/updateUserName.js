@@ -13,7 +13,7 @@ function updateUserName(token, newName, newLastName, callback) {
 
   logger.info('request')
 
-  const api = new Apium('http://localhost:8080/api')
+  const api = new Apium(`${process.env.REACT_APP_API_URL}`)
 
   api.patch('users', {
     headers: {
