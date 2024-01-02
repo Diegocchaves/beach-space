@@ -22,7 +22,8 @@ const { cors } = require('./helpers')
 
   ; (async () => {
     console.log('test')
-    await connect(`mongodb+srv://diego_carver:${process.env.DB_PASSWORD}@cluster0.ypbuokm.mongodb.net/events-db`)//mongodb://127.0.0.1:27017
+    // await connect(`mongodb+srv://diego_carver:${process.env.DB_PASSWORD}@cluster0.ypbuokm.mongodb.net/events-db`)//mongodb://127.0.0.1:27017
+    await connect(`${process.env.DB_URL}`)//mongodb://127.0.0.1:27017
 
     console.log('DB connected')
 
@@ -65,7 +66,7 @@ const { cors } = require('./helpers')
     })
   })()
 
-module.exports = api
+// module.exports = api
 
 // No sabemos de mongo
 // sabemos de logic y de cliente (insmonmia)
