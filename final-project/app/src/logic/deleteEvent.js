@@ -10,7 +10,7 @@ function deleteEvent(token, eventId, callback) {
   validateJwt(token)
   validateStringNotEmptyNoSpaces(eventId, 'eventId')
 
-  const api = new Apium('${process.env.REACT_APP_API_URL}')
+  const api = new Apium(`${process.env.REACT_APP_API_URL}`)
 
   logger.info('request')
 

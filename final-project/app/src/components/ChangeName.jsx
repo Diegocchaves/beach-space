@@ -43,7 +43,7 @@ function ChangeName() {
           <h4>First name</h4>
         </div>
         <div>
-          <input className="Input Input--light" type="text" name="name" placeholder="name" />
+          <input className="input-light" type="text" name="name" placeholder="name" />
         </div>
       </div>
       <div className='change-name-input-wrapper'>
@@ -51,7 +51,7 @@ function ChangeName() {
           <h4>Last name</h4>
         </div>
         <div>
-          <input className="Input Input--light" type="text" name="lastName" placeholder="Last name" />
+          <input className="input-light" type="text" name="lastName" placeholder="Last name" />
         </div>
       </div>
 

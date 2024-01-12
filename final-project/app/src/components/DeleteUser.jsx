@@ -39,7 +39,7 @@ function DeleteUser() {
   return <div>
 
     <form className="delete-user-form" onSubmit={handleFormSubmit}>
-      <input className="Input Input__light" type="password" name="password" placeholder="Password" />
+      <input className="input-light" type="password" name="password" placeholder="Password" />
       <button className="delete-user-buttom" >Delete User</button>
     </form>
   </div>

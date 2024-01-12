@@ -45,17 +45,17 @@ function EventCreator() {
 
       <form className="event-creator-form" onSubmit={handleSaveSubmit}>
         <h5>Name of the event</h5>
-        <textarea className='event-creator-title' type='text' name="title" placeholder="What the name of the event?"></textarea>
+        <textarea className='input-light' type='text' name="title" placeholder="What the name of the event?"></textarea>
 
         <h5>Description</h5>
         <textarea className='event-creator-description' type='text' name="description" placeholder="Describe the event" />
         <div className='event-creator-input-container'>
           <i className='event-creator-icon'><MdOutlineLocationOn /></i>
-          <textarea className='event-creator-input' type="text" name='location' placeholder='Add the location of the event' />
+          <textarea className='input-light' type="text" name='location' placeholder='Add the location of the event' />
         </div>
         <div className='event-creator-input-container'>
           <i className='event-creator-icon'> <MdCalendarToday /></i>
-          <textarea className='event-creator-input' type="text" name='eventDate' placeholder='Indicate the date and time of the event' />
+          <textarea className='input-light' type="text" name='eventDate' placeholder='Indicate the date and time of the event' />
         </div>
 
         <button className="event-creator-button">Save</button>

@@ -37,7 +37,7 @@ function HomeEventList() {
 
   return events && events.length ?
     <div className='event-home-container'>
-      <ul className="event-home-presentation">{events.map(event => <li key={event.id}>
+      <ul className="event-home-presentation">{events.map(event => <li className='home-event-list' key={event.id}>
         <HomeEvent event={event} onSignUp={handleSignUpToEventClick} />
       </li>)}
       </ul>
