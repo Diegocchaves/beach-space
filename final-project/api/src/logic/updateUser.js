@@ -1,7 +1,7 @@
 const { User } = require('../models')
 const { NotFoundError } = require('errors')
 const { validateStringNotEmptyOrBlank, validateEmail, validateStringNotEmptyNoSpaces, validatePassword } = require('validators')
-debugger
+
 function updateUser(userId, name, lastName, email, password) {
   validateStringNotEmptyNoSpaces(userId)
   if (name != null) validateStringNotEmptyOrBlank(name, 'name')

@@ -1,7 +1,7 @@
 const { User } = require('../models')
 const { NotFoundError } = require('errors')
 const { validateStringNotEmptyNoSpaces } = require('validators')
-debugger
+
 function retrieveUser(userId) {
   validateStringNotEmptyNoSpaces(userId)
 
