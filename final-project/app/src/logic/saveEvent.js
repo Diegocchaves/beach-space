@@ -2,7 +2,7 @@ import Logger from 'loggy'
 import Apium from 'apium'
 import { validateDate, validateJwt, validateString, validateStringNotEmptyNoSpaces } from 'validators'
 
-function saveEvent(token, eventId, title, description, location, eventDate, callback) {
+function saveEvent(token, eventId, title, description, location, eventDate, formData, callback) {
   const logger = new Logger('saveEvent')
 
   logger.info('call')
@@ -13,6 +13,7 @@ function saveEvent(token, eventId, title, description, location, eventDate, call
   validateString(description, 'description')
   validateString(location, 'location')
   validateString(eventDate, 'eventDate')
+  // validateString(image, 'image')
 
   logger.info('request')
 
@@ -22,9 +23,9 @@ function saveEvent(token, eventId, title, description, location, eventDate, call
     api.post('events', {
       headers: {
         Authorization: `Bearer ${token}`,
-        'Content-Type': 'application/json'
+        'Content-Type': 'multipart/form-data',
       },
-      body: JSON.stringify({ title, description, location, eventDate })
+      body: formData,
     }, (error, response) => {
       if (error) return callback(error)
 
@@ -46,9 +47,9 @@ function saveEvent(token, eventId, title, description, location, eventDate, call
     api.patch(`events/${eventId}`, {
       headers: {
         Authorization: `Bearer ${token}`,
-        'Content-Type': 'application/json'
+        'Content-Type': 'multipart/form-data',
       },
-      body: JSON.stringify({ eventId, title, description, location, eventDate })
+      body: formData,
     }, (error, response) => {
       if (error) return callback(error)
 

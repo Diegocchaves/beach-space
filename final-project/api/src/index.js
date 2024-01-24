@@ -2,6 +2,7 @@ require('dotenv').config()
 
 const express = require('express')
 const bodyParser = require('body-parser')
+const multer = require('multer'); // Add multer for handling file uploads
 const {
   handleRegisterUser,
   handleAuthenticateUser,
@@ -38,6 +39,9 @@ const { cors } = require('./helpers')
     api.get("/", (req, res) => {
       res.send("Express on Vercel");
     });
+
+    const upload = multer({ dest: 'uploads/' });
+
     routes.post('/users', jsonBodyParser, handleRegisterUser)//registerUser
     routes.post('/users/auth', jsonBodyParser, handleAuthenticateUser)//authenticateUser
     routes.get('/users', handleRetrieveUser)//retrieveUser
@@ -47,7 +51,8 @@ const { cors } = require('./helpers')
     routes.get('/users/events', jsonBodyParser, handleRetrieveTargetedEvent)//RetrieveTargetedEvent
     routes.delete('/users/events/:eventId', jsonBodyParser, handleDeleteTargetedEvent)//deleteTargetedEvent
 
-    routes.post('/events', jsonBodyParser, handleCreateEvent)//createEvent
+    routes.post('/events', upload.single('image'), jsonBodyParser, handleCreateEvent) //createEvent
+    // routes.post('/events', jsonBodyParser, handleCreateEvent)//createEvent
     routes.get('/events', handleRetrieveEvent)//retrieveEvent
     routes.get('/events/owner', handleRetrieveOwnerEvent)//retrieveOwnerEvent
     routes.patch('/events/:eventId', jsonBodyParser, handleUpdateEvent)//updateEvent

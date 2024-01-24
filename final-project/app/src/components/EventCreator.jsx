@@ -5,7 +5,7 @@ import saveEvent from '../logic/saveEvent'
 import { isJwtValid } from 'validators'
 import './EventCreator.sass'
 import { useNavigate } from 'react-router-dom'
-import { MdOutlineLocationOn, MdCalendarToday } from "react-icons/md"
+
 
 function EventCreator() {
   const logger = new Logger('EventCreator')
@@ -15,16 +15,22 @@ function EventCreator() {
   const { handleFeedback } = useContext(Context)
   const navigate = useNavigate()
 
+  const [image, setImage] = useState(null)
+
+  const handleImageUpload = (e) => {
+    const file = e.target.files[0]
+    // Handle the selected image file as needed
+    setImage(file)
+  }
+
   const handleSaveSubmit = event => {
     event.preventDefault()
+    const { target: { title, description, location, eventDate } } = event
 
-    const { target: { title: { value: title } } } = event
-    const { target: { description: { value: description } } } = event
-    const { target: { location: { value: location } } } = event
-    const { target: { eventDate: { value: eventDate } } } = event
+    const formData = new FormData()
+    formData.append('image', image)
 
-
-    saveEvent(sessionStorage.token, null, title, description, location, eventDate, error => {
+    saveEvent(sessionStorage.token, null, title.value, description.value, location.value, eventDate.value, formData, (error) => {
       if (error) {
         handleFeedback({ level: 'error', message: error.message })
 
@@ -44,17 +50,21 @@ function EventCreator() {
       </div>
 
       <form className="event-creator-form" onSubmit={handleSaveSubmit}>
-        <h5>Name of the event</h5>
+
+        {/* Add image input */}
+        <div className="event-creator-input-container">
+          <label htmlFor="image">Event Image:</label>
+          <input type="file" id="image" name="image" accept="image/*" onChange={handleImageUpload} />
+        </div>
+
         <textarea className='input-light' type='text' name="title" placeholder="What the name of the event?"></textarea>
 
         <h5>Description</h5>
         <textarea className='event-creator-description' type='text' name="description" placeholder="Describe the event" />
         <div className='event-creator-input-container'>
-          <i className='event-creator-icon'><MdOutlineLocationOn /></i>
           <textarea className='input-light' type="text" name='location' placeholder='Add the location of the event' />
         </div>
         <div className='event-creator-input-container'>
-          <i className='event-creator-icon'> <MdCalendarToday /></i>
           <textarea className='input-light' type="text" name='eventDate' placeholder='Indicate the date and time of the event' />
         </div>
 

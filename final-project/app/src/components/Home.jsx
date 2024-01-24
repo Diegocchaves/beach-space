@@ -146,7 +146,7 @@ function Home({ onUserLogout }) {
                   )}
                 </div>
                 <div className='account-name'>
-                  <p>{name} {lastName}</p>
+                  <p className='name'>{name} {lastName}</p>
                 </div>
               </div>
               {showLogoutContainer && (

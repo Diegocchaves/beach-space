@@ -1,4 +1,4 @@
-console.log('%cApium v1.2', 'font-size: 36px; background: linear-gradient(to right, #30CFD0 0%, #330867 100%); color: white;')
+console.log('%cApium v1.2', 'font-size: 36px; background: linear-gradient(to right, #30CFD0 0%, #330867 100%); color: white')
 
 /**
  * API "Universal Messenger" (APIum)
@@ -35,9 +35,9 @@ class Apium {
      */
     call(method, urlOrPath, options, callback) {
         if (callback) {
-            const xhr = new XMLHttpRequest
+            const xhr = new XMLHttpRequest()
 
-            xhr.addEventListener('load', event => {
+            xhr.addEventListener('load', (event) => {
                 const { status, responseText: payload } = event.target
 
                 callback(null, { status, payload })
@@ -54,41 +54,56 @@ class Apium {
             if (options) {
                 const { headers, body } = options
 
-                if (headers)
-                    for (const key in headers)
+                if (headers) {
+                    for (const key in headers) {
                         xhr.setRequestHeader(key, headers[key])
+                    }
+                }
 
-                xhr.send(body)
-            } else xhr.send()
-        } else return new Promise((resolve, reject) => {
-            const xhr = new XMLHttpRequest
+                if (body instanceof FormData) {
+                    // Handle FormData
+                    xhr.send(body)
+                } else {
+                    // Set default Content-Type for non-FormData requests
+                    xhr.setRequestHeader('Content-Type', 'application/json')
+                    xhr.send(JSON.stringify(body))
+                }
+            } else {
+                xhr.send()
+            }
+        } else {
+            return new Promise((resolve, reject) => {
+                const xhr = new XMLHttpRequest()
 
-            xhr.addEventListener('load', event => {
-                const { status, responseText: payload } = event.target
+                xhr.addEventListener('load', (event) => {
+                    const { status, responseText: payload } = event.target
 
-                resolve({ status, payload })
+                    resolve({ status, payload })
+                })
+
+                xhr.addEventListener('error', () => {
+                    reject(new Error('API call fail'))
+                })
+
+                const url = urlOrPath.toLowerCase().startsWith('http://') || urlOrPath.toLowerCase().startsWith('https://') ? urlOrPath : `${this.baseUrl}/${urlOrPath}`
+
+                xhr.open(method, url)
+
+                if (options) {
+                    const { headers, body } = options
+
+                    if (headers) {
+                        for (const key in headers) {
+                            xhr.setRequestHeader(key, headers[key])
+                        }
+                    }
+                    xhr.send(body)
+                } else {
+                    xhr.send()
+                }
             })
-
-            xhr.addEventListener('error', () => {
-                reject(new Error('API call fail'))
-            })
-
-            const url = urlOrPath.toLowerCase().startsWith('http://') || urlOrPath.toLowerCase().startsWith('https://') ? urlOrPath : `${this.baseUrl}/${urlOrPath}`
-
-            xhr.open(method, url)
-
-            if (options) {
-                const { headers, body } = options
-
-                if (headers)
-                    for (const key in headers)
-                        xhr.setRequestHeader(key, headers[key])
-
-                xhr.send(body)
-            } else xhr.send()
-        })
+        }
     }
-
     get(urlOrPath, options, callback) {
         return this.call('GET', urlOrPath, options, callback)
     }
@@ -112,6 +127,134 @@ class Apium {
     options(urlOrPath, options, callback) {
         return this.call('OPTIONS', urlOrPath, options, callback)
     }
+
 }
 
 module.exports = Apium
+
+
+
+
+
+// console.log('%cApium v1.2', 'font-size: 36px background: linear-gradient(to right, #30CFD0 0%, #330867 100%) color: white')
+
+// /**
+//  * API "Universal Messenger" (APIum)
+//  *
+//  * Processes HTTP requests/responses (http client)
+//  */
+// class Apium {
+//     /**
+//      * Constructs an instance of Apium
+//      * 
+//      * @param {string} baseUrl The base url to connect to
+//      */
+//     constructor(baseUrl) {
+//         this.baseUrl = baseUrl
+//     }
+
+//     /**
+//      * Performs an HTTP call to a server
+//      * 
+//      * @param {string} method The HTTP method (GET, POST, PATCH, PUT, DELETE, ...)
+//      * @param {string} urlOrPath The address of the server to connect to
+//      * @param {Object} options The required HTTP headers or body for the specific call
+//      *  
+//      * Example:
+//      * 
+//      * {
+//      *       headers: {
+//      *           Authorization: ...,
+//      *           'Content-Type': ...
+//      *       },
+//      *       body: ...
+//      *   }
+//      * @param {function} callback  The callback function that attends the response's result ({ status, payload})
+//      */
+//     call(method, urlOrPath, options, callback) {
+//         if (callback) {
+//             const xhr = new XMLHttpRequest
+
+//             xhr.addEventListener('load', event => {
+//                 const { status, responseText: payload } = event.target
+
+//                 callback(null, { status, payload })
+//             })
+
+//             xhr.addEventListener('error', () => {
+//                 callback(new Error('API call fail'))
+//             })
+
+//             const url = urlOrPath.toLowerCase().startsWith('http://') || urlOrPath.toLowerCase().startsWith('https://') ? urlOrPath : `${this.baseUrl}/${urlOrPath}`
+
+//             xhr.open(method, url)
+
+//             if (options) {
+//                 const { headers, body } = options
+
+//                 if (headers){
+//                     for (const key in headers)
+//                     xhr.setRequestHeader(key, headers[key])
+//                 }
+//             } if (body instanceof FormData) {
+//                 xhr.send(body)
+//             }
+//             else {
+//                 xhr.setRequestHeader('Content-Type', 'application/json')
+//                 xhr.send(JSON.stringify(body))
+//             }
+//         } else return new Promise((resolve, reject) => {
+//             const xhr = new XMLHttpRequest
+
+//             xhr.addEventListener('load', event => {
+//                 const { status, responseText: payload } = event.target
+
+//                 resolve({ status, payload })
+//             })
+
+//             xhr.addEventListener('error', () => {
+//                 reject(new Error('API call fail'))
+//             })
+
+//             const url = urlOrPath.toLowerCase().startsWith('http://') || urlOrPath.toLowerCase().startsWith('https://') ? urlOrPath : `${this.baseUrl}/${urlOrPath}`
+
+//             xhr.open(method, url)
+
+//             if (options) {
+//                 const { headers, body } = options
+
+//                 if (headers)
+//                     for (const key in headers)
+//                         xhr.setRequestHeader(key, headers[key])
+
+//                 xhr.send(body)
+//             } else xhr.send()
+//         })
+//     }
+
+//     get(urlOrPath, options, callback) {
+//         return this.call('GET', urlOrPath, options, callback)
+//     }
+
+//     post(urlOrPath, options, callback) {
+//         return this.call('POST', urlOrPath, options, callback)
+//     }
+
+//     patch(urlOrPath, options, callback) {
+//         return this.call('PATCH', urlOrPath, options, callback)
+//     }
+
+//     put(urlOrPath, options, callback) {
+//         return this.call('PUT', urlOrPath, options, callback)
+//     }
+
+//     delete(urlOrPath, options, callback) {
+//         return this.call('DELETE', urlOrPath, options, callback)
+//     }
+
+//     options(urlOrPath, options, callback) {
+//         return this.call('OPTIONS', urlOrPath, options, callback)
+//     }
+// }
+
+// module.exports = Apium
