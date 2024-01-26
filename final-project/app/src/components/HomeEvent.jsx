@@ -32,7 +32,7 @@ function HomeEvent(props) {
       <div className="home-event-image-container">
         <img
           className="home-event-image"
-          src={event.image || 'https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/images/bg-8.png'}
+          src={event.image}
           alt="Event Image"
         />
       </div>

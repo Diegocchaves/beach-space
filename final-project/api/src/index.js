@@ -1,5 +1,4 @@
 require('dotenv').config()
-
 const express = require('express')
 const bodyParser = require('body-parser')
 const multer = require('multer'); // Add multer for handling file uploads
@@ -17,7 +16,6 @@ const {
   handleAddEventToUser,
   handleRetrieveTargetedEvent,
   handleDeleteTargetedEvent } = require('./handlers')
-
 const { connect, disconnect } = require('mongoose')
 const { cors } = require('./helpers')
 
@@ -37,10 +35,10 @@ const { cors } = require('./helpers')
     const routes = express.Router()//El router se refiere a cómo los endpoints de una la app (URI) responden a las solicitudes de los clients.
 
     api.get("/", (req, res) => {
-      res.send("Express on Vercel");
+      res.send("Express on Vercel")
     });
 
-    const upload = multer({ dest: 'uploads/' });
+    const upload = multer({ dest: 'uploads/' })
 
     routes.post('/users', jsonBodyParser, handleRegisterUser)//registerUser
     routes.post('/users/auth', jsonBodyParser, handleAuthenticateUser)//authenticateUser
