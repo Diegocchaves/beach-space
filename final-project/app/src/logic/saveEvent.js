@@ -19,14 +19,21 @@ function saveEvent(token, eventId, title, description, location, eventDate, form
 
   const api = new Apium(`${process.env.REACT_APP_API_URL}`)
 
-  if (!eventId)
-    api.post('events', {
-      headers: {
-        Authorization: `Bearer ${token}`,
-        'Content-Type': 'multipart/form-data',
-      },
-      body: formData,
-    }, (error, response) => {
+  const _body = {
+    title,
+    description,
+    location,
+    eventDate
+  }
+  if (!eventId) {
+    const headers = {
+      Authorization: `Bearer ${token}`,
+    }
+    const options = {
+      headers,
+      body: _body, formData,
+    }
+    api.post('events', options, (error, response) => {
       if (error) return callback(error)
 
       logger.info('response')
@@ -43,14 +50,18 @@ function saveEvent(token, eventId, title, description, location, eventDate, form
         callback(null)
       }
     })
-  else
-    api.patch(`events/${eventId}`, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-        'Content-Type': 'multipart/form-data',
-      },
-      body: formData,
-    }, (error, response) => {
+
+  } else {
+    const headers = {
+      Authorization: `Bearer ${token}`,
+    }
+
+    const options = {
+      headers,
+      body: _body, formData,
+    }
+
+    api.patch(`events/${eventId}`, options, (error, response) => {
       if (error) return callback(error)
 
       logger.info('response')
@@ -67,6 +78,7 @@ function saveEvent(token, eventId, title, description, location, eventDate, form
         callback(null)
       }
     })
+  }
 }
 
 export default saveEvent

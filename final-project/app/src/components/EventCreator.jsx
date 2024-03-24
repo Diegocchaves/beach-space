@@ -54,7 +54,7 @@ function EventCreator() {
         {/* Add image input */}
         <div className="event-creator-input-container">
           <label htmlFor="image">Event Image:</label>
-          <input type="file" id="image" name="image" accept="image/*" onChange={handleImageUpload} />
+          <input type="file" id="image" name="image" accept='image/*' onChange={handleImageUpload} />
         </div>
 
         <textarea className='input-light' type='text' name="title" placeholder="What the name of the event?"></textarea>
