@@ -59,7 +59,7 @@ function Login(props) {
         </div>
 
         {/* forgot password link */}
-        <div className='pass'><a href="#">Forgot password?</a></div>
+        {/* <div className='pass'><a href="#">Forgot password?</a></div> */}
 
         {/* Login input */}
         <div className='row button'>
